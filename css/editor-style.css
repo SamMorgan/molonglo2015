@@ -1,0 +1,11 @@
+body#tinymce.wp-editor {  
+	font-family: Arial,sans-serif;
+	font-size: 33px;
+	line-height: 1.5em;	
+}
+body#tinymce.wp-editor .alignleft {
+	margin: 0 0.5em 0 0;
+}
+body#tinymce.wp-editor .alignright {
+	margin: 0 0 0 0.5em;
+}
