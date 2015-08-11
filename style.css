@@ -512,6 +512,7 @@ footer {
   height: 90px; }
 
 .main_nav {
+  display: none;
   padding: 90px 0; }
   .main_nav .category h2 {
     text-align: center;

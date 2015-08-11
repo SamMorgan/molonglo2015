@@ -77,7 +77,7 @@ jQuery(document).ready(function($){
 			mainNavH = $('.main_nav').height(),
 			mainNavPadding = ($win.height() - mainNavH)/2;
 		if(mainNavPadding > 90){	
-			mainNav.css('padding-top',mainNavPadding+"px");
+			mainNav.css('padding-top',mainNavPadding+"px").show();
 		}
 	}
 	
