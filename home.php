@@ -10,7 +10,7 @@
 					
 				</div>
 			</section>
-			<section class="category">
+			<section class="category times">
 				<h2><span class="category_toggle">Times</span></h2>
 				<div class="category_posts">
 			        <div class="clock widget">
@@ -55,10 +55,34 @@
 					
 				</div>
 			</section>
-			<section class="category">
+			<section class="category roman">
 				<h2><span class="category_toggle">Roman</span></h2>
 				<div class="category_posts">
-					
+			        <div class="widget">
+
+			        </div>				
+					<?php 
+						$roman_args = array('category_name' => 'roman');
+
+						$roman_query = new WP_Query( $roman_args );
+		
+						if ( $roman_query->have_posts() ) {
+							echo '<ul>';
+							while ( $roman_query->have_posts() ) {
+								$roman_query->the_post(); 
+									echo '<li><a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
+									 
+									echo '<h4>'.get_the_title().'</h4>';
+									$sub_heading = get_field('sub_heading');
+									if($sub_heading){
+										echo '<h5>'.$sub_heading.'</h5>';
+									}
+									the_excerpt();								
+									echo '</a></li>';
+							}
+							echo '</ul>';
+						}					
+					?>					
 				</div>
 			</section>
 		</nav>

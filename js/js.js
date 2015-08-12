@@ -96,6 +96,7 @@ jQuery(document).ready(function($){
 	$(document).on('click','.post_link',function(){
 	//$('.post_link').click(function(){
 		var homewrapH = $homewrap.height(),
+			href = $(this).attr('href'),
 			winW = $win.width(),
 			s = $win.scrollTop(),
 			$widget = $('.widget:visible'),
@@ -134,6 +135,7 @@ jQuery(document).ready(function($){
 		        	$slidewrap.animate({'height':$('.article').height()},300);
 		        	$('.article').fadeTo(300,1); 
 		            popups();
+		            window.history.pushState({path:href},'',href);		            
 
 		        }
 		    });
@@ -147,7 +149,8 @@ jQuery(document).ready(function($){
 		var homewrapH = $homewrap.height(),
 			scrollPos = $slidewrap.data('scroll'),
 			$widget = $('.widget:visible'),
-			$widgetTop = $widget.data('top');
+			$widgetTop = $widget.data('top'),
+			href = $(this).attr('href');
 		
 		//$slidewrap.removeClass('moving');
 		$('.breadcrumbs').fadeOut();
@@ -158,6 +161,7 @@ jQuery(document).ready(function($){
 		});		
 		$slidewrap.transition({ x: 0, height: homewrapH },1000,function(){
 			$(this).height('auto');
+			window.history.pushState({path:href},'',href);
 		});
 
 		return false;
