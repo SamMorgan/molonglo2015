@@ -103,8 +103,9 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
     add_shortcode( 'footnote', 'footnotes' );
 
 
-    function load_post(){
-        //$postid = url_to_postid( $_POST['post_url'] );    
+    function load_article(){
+        //$postid = url_to_postid( $_POST['post_url'] ); 
+
         $args = array('p' => $_POST['post_id']);
 
         $post_query = new WP_Query( $args );
@@ -113,7 +114,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         endwhile;
         wp_die();        
     }
-    add_action('wp_ajax_nopriv_load_post', 'load_post');
-    add_action('wp_ajax_load_post', 'load_post');     
+    add_action('wp_ajax_nopriv_load_article', 'load_article');
+    add_action('wp_ajax_load_article', 'load_article');     
 	
 ?>

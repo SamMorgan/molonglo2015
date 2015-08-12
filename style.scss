@@ -178,7 +178,7 @@ footer {
   width: 200%;
   position:relative;
   left:0;
-  transition: left 1s;
+  transition:all 1s;
   .contentwrap {
     width: 50%;
     &.articlewrap {
@@ -190,8 +190,15 @@ footer {
       float: left;
     }
   }
-
 }
+.single {
+  .breadcrumbs {
+    display: block;
+  }
+  // #slidewrap {
+  //   left:-100%;
+  // }
+} 
 // .table {
 //   display: table;
 //   height: 100%;

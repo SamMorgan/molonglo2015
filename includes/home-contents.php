@@ -1,8 +1,3 @@
-<?php get_header(); ?>
-<div id="slidewrap">
-	
-	<div class="homewrap contentwrap">
-	   
 		<nav class="main_nav">
 			<section class="category">
 				<h2><span class="category_toggle">About</span></h2>
@@ -86,12 +81,3 @@
 				</div>
 			</section>
 		</nav>
-
-	</div> 
-
-	<div class="contentwrap articlewrap">
-
-	</div>
-
-</div>     
-<?php get_footer(); ?>
