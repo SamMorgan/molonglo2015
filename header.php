@@ -51,6 +51,9 @@
 
 		<nav class="breadcrumbs">
 			<a href="<?php echo home_url();?>" id="back"><svg><use xlink:href="#left-arrow" /></use></svg></a>
+			<a href="<?php echo home_url();?>/#about" class="<?php if(is_page('about')){ echo 'active';}?> about">About</a>
+			<a href="<?php echo home_url();?>/#times" class="<?php if(has_category('times')){ echo 'active';}?> times">Times</a>
+			<a href="<?php echo home_url();?>/#new" class="<?php if(has_category('new')){ echo 'active';}?> new">New</a>
+			<a href="<?php echo home_url();?>/#roman" class="<?php if(has_category('roman')){ echo 'active';}?> roman">Roman</a>
 		</nav>
-
 	</header>

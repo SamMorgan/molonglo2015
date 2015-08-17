@@ -1,14 +1,14 @@
 		<nav class="main_nav">
-			<section class="category">
-				<h2><span class="category_toggle">About</span></h2>
+			<section class="categorywrap about" id="about">
+				<h2><a href="#about" class="category_toggle">About</a></h2>
 				<div class="category_posts">
 					
 				</div>
 			</section>
-			<section class="category times">
-				<h2><span class="category_toggle">Times</span></h2>
-				<div class="category_posts">
-			        <?php get_template_part('includes/widget-times');?>				
+			<section class="categorywrap times" id="times">
+				<h2><a href="#times" class="category_toggle">Times</a></h2>
+				<?php get_template_part('includes/widget-times');?>
+				<div class="category_posts">			        				
 					<?php 
 						$times_args = array(
 							//'post_type' 	=> 'post',
@@ -40,16 +40,17 @@
 					?>						
 				</div>
 			</section>
-			<section class="category">
-				<h2><span class="category_toggle">New</span></h2>
-				<div class="category_posts">					
-					<?php get_template_part('includes/widget-new');?>
+			<section class="categorywrap new" id="new">
+				<h2><a href="#new" class="category_toggle">New</a></h2>
+				<?php get_template_part('includes/widget-new');?>
+				<div class="category_posts">										
 				</div>
 			</section>
-			<section class="category roman">
-				<h2><span class="category_toggle">Roman</span></h2>
+			<section class="categorywrap roman" id="roman">
+				<h2><a href="roman" class="category_toggle">Roman</a></h2>
+				<?php get_template_part('includes/widget-roman');?>
 				<div class="category_posts">
-					<?php get_template_part('includes/widget-roman');?>				
+									
 					<?php 
 						$roman_args = array('category_name' => 'roman');
 

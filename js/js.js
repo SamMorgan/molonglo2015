@@ -81,14 +81,54 @@ jQuery(document).ready(function($){
 		mainNavCenter();
 	});
 
+	// Main nav //
 	$('.category_toggle').click(function(){
-		var targetElem = $(this).parent('h2').next();
-		targetElem.slideToggle();
+		var $category = $(this).closest('.categorywrap'),
+			$targetElem = $category.find('.category_posts'),
+			$categoryOpen = $('.categorywrap.open'),
+			hash = $(this).attr('href');
+
+		//$category.toggleClass('open');	
+		//$targetElem.slideToggle();
+		if($targetElem.is(':visible')){
+			$category.removeClass('open');
+			$targetElem.slideUp();
+			window.location.hash = '';
+		}else{
+			if($categoryOpen.length){
+				$categoryOpen.removeClass('open');
+				$categoryOpen.find('.category_posts').slideUp();			
+			}
+			$category.addClass('open');
+			$targetElem.slideDown();						
+			window.location.hash = hash;			
+		}
+		$('#back').attr('href',window.location);
+		return false;
+	});
+
+	function openActiveNavItem(hash){
+		$('.categorywrap.open').removeClass('open').find('.category_posts').hide();
+		$(hash).addClass('open').find('.category_posts').show();
+	}
+
+	if(window.location.hash){
+		openActiveNavItem(window.location.hash);
+	}
+
+	$('.category_toggle').hover(function(){
+		$(this).closest('.categorywrap').addClass('hover');
+	},function(){
+		$(this).closest('.categorywrap').removeClass('hover');
 	});
 
 	function slideLeft($this){
 		var href = $this.attr('href'),
-			post_id = $this.data('id');
+			post_id = $this.data('id'),
+			cat = $this.closest('.categorywrap').attr('id');
+
+		$('.breadcrumbs a').removeClass('active');
+		$('.breadcrumbs a.'+cat).addClass('active');	
 
 		if($('.article#post-'+post_id).length){
 		    $('body').removeClass('home').addClass('single');
@@ -114,16 +154,22 @@ jQuery(document).ready(function($){
 		    });
 		}
 	}
-	// slide left //
+
+	// to article //
 	$(document).on('click','.post_link',function(){
 		var $this = $(this);
 		slideLeft($this);				
 		return false;
 	});
 
-	// slide right //
-	$(document).on('click','#back',function(){
-		var href = $(this).attr('href');
+	// to home //
+	$(document).on('click','.breadcrumbs a',function(){
+		var href = $(this).attr('href'),
+			hash = this.hash;
+			
+		if(hash.length){
+			openActiveNavItem(hash);
+		}
 
 		$('body').removeClass('single').addClass('home');							
 		window.history.pushState({path:href},'',href);
@@ -132,7 +178,6 @@ jQuery(document).ready(function($){
 
 	// Back button //
 	$(window).on("popstate", function(e) {
-		console.log(e.originalEvent.state.path);
 		if (e.originalEvent.state !== null) {
 			var homeUrl = $('#back').attr('href');
 			if(e.originalEvent.state.path === homeUrl || e.originalEvent.state.path === homeUrl+'/'){

@@ -154,7 +154,7 @@
 		"outputAbbreviatedPath": "\/js\/min\/js-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
+		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
 	"\/js\/lib\/jquery.magnific-popup.custom.min.js": {

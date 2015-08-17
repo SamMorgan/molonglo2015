@@ -99,6 +99,27 @@ header {
 .widget {
   position:absolute;
   right:3%; 
+  top:0;
+}
+.categorywrap {
+  position:relative;
+  h2 {
+    text-align:center;
+    @include fortescue;
+    font-size:72px;
+    a {
+      text-decoration: none;
+    }
+  }  
+  .widget {
+    display: none;
+  }
+  &.hover,
+  &.open {
+    .widget {
+      display: block;
+    }
+  }
 }
 .clock {
   width: 60px;
@@ -121,6 +142,13 @@ header {
   position:fixed;
   top:34px;
   left:1em;
+  @include fortescue;
+  a {
+    text-decoration: none;
+    &.active {
+      border-bottom:1px solid;
+    }
+  }
 }
 #slidewrap {
   width: 200%;
@@ -172,16 +200,6 @@ footer {
 .main_nav {
   display: none;
   padding: 90px 0;
-  .category {
-    h2 {
-      text-align:center;
-      @include fortescue;
-      font-size:72px;
-      span {
-        cursor: pointer;
-      }
-    }
-  }
 }
 .category_posts {
   display: none;
