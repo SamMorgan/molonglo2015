@@ -8,11 +8,7 @@
 			<section class="category times">
 				<h2><span class="category_toggle">Times</span></h2>
 				<div class="category_posts">
-			        <div class="clock widget">
-			            <svg class="clock_face"><use xlink:href="#clockface" /></use></svg>
-			            <svg id="min"><use xlink:href="#minute-hand" /></use></svg>
-			            <svg id="hour"><use xlink:href="#hour-hand" /></use></svg>
-			        </div>				
+			        <?php get_template_part('includes/widget-clock');?>				
 					<?php 
 						$times_args = array(
 							//'post_type' 	=> 'post',
@@ -47,20 +43,13 @@
 			<section class="category">
 				<h2><span class="category_toggle">New</span></h2>
 				<div class="category_posts">					
-					<?php 	
-						$moon = new Solaris\MoonPhase();			
-						$moon_phase = round($moon->phase() * 8);
-						echo $moon_phase;
-						echo '<svg class="moon widget"><use xlink:href="#moon-'.$moon_phase.'" /></use></svg>';
-					?>					
+					<?php get_template_part('includes/widget-new');?>
 				</div>
 			</section>
 			<section class="category roman">
 				<h2><span class="category_toggle">Roman</span></h2>
 				<div class="category_posts">
-			        <div class="widget">
-
-			        </div>				
+					<?php get_template_part('includes/widget-roman');?>				
 					<?php 
 						$roman_args = array('category_name' => 'roman');
 

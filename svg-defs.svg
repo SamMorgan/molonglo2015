@@ -97,11 +97,11 @@
 	</g>
 </g>
 </symbol>
-<symbol id="hour-hand" viewBox="0 0 136 136">
+<symbol id="minute-hand" viewBox="0 0 136 136">
 <path d="M69.143,17.232l-2.25,0.001l-1.103,50.983v0.001v0.002l1.108,20.408l2.25,0.002L70.29,68.22v-0.003
 	L69.143,17.232z"/>
 </symbol>
-<symbol id="minute-hand" viewBox="0 0 136 136">
+<symbol id="hour-hand" viewBox="0 0 136 136">
 <polygon points="68.911,23.766 66.659,23.771 65.632,67.974 66.801,88.371 69.053,88.365 70.133,67.964 "/>
 </symbol>
 <symbol id="left-arrow" viewBox="0 0 22 18">
