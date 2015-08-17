@@ -8,7 +8,7 @@
 			<section class="category times">
 				<h2><span class="category_toggle">Times</span></h2>
 				<div class="category_posts">
-			        <?php get_template_part('includes/widget-clock');?>				
+			        <?php get_template_part('includes/widget-times');?>				
 					<?php 
 						$times_args = array(
 							//'post_type' 	=> 'post',

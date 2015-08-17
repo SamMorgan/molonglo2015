@@ -21,7 +21,7 @@ jQuery(document).ready(function($){
 		var mdegree = mins * 6;
 		var mrotate = "rotate(" + mdegree + "deg)";
 
-		$('#min').css({ "transform" : mrotate });		
+		$('.min').css({ "transform" : mrotate });		
 	}	
 	function setHours(){
 		var hours = new Date().getHours();
@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
 		var hdegree = hours * 30 + (mins / 2);
 		var hrotate = "rotate(" + hdegree + "deg)";
 
-		$('#hour').css({ "transform": hrotate});
+		$('.hour').css({ "transform": hrotate});
 	}	
 	//setSeconds();
 	setMinutes();
@@ -100,20 +100,20 @@ jQuery(document).ready(function($){
 			href = $(this).attr('href'),
 			winW = $win.width(),
 			s = $win.scrollTop(),
-			$widget = $('.widget:visible'),
-			widgetOffset = $widget.offset(),
+			//$widget = $('.widget:visible'),
+			//widgetOffset = $widget.offset(),
 			post_id = $(this).data('id');
 
 		$slidewrap.data('scroll',s);
 		
-		$widget.appendTo('body').css({
-			'position':'fixed',
-			'top':widgetOffset.top+'px',
-			'left':widgetOffset.left+'px'
-		})
-		.data('top',widgetOffset.top)
-		.data('left',widgetOffset.left)
-		.animate({'top':'90px'},1000);
+		// $widget.appendTo('body').css({
+		// 	'position':'fixed',
+		// 	'top':widgetOffset.top+'px',
+		// 	'left':widgetOffset.left+'px'
+		// })
+		// .data('top',widgetOffset.top)
+		// .data('left',widgetOffset.left)
+		// .animate({'top':'90px'},1000);
 
 
 		$('.articlewrap').show();
@@ -174,14 +174,14 @@ jQuery(document).ready(function($){
 
 		var homewrapH = $homewrap.height(),
 			scrollPos = $slidewrap.data('scroll'),
-			$widget = $('.widget:visible'),
-			$widgetTop = $widget.data('top'),
+			//$widget = $('.widget:visible'),
+			//$widgetTop = $widget.data('top'),
 			href = $(this).attr('href');
 		
 		//$slidewrap.removeClass('moving');
 		$('.breadcrumbs').fadeOut();
 		$('html,body').animate({'scrollTop':scrollPos},900);
-		$widget.animate({'top':$widgetTop},900);
+		//$widget.animate({'top':$widgetTop},900);
 		$slidewrap.css({ 
 			'transition':'all 1s',
 			'transform':'translate3d(0px,0px,0px)', 
@@ -192,7 +192,7 @@ jQuery(document).ready(function($){
 				'transition':'none'
 			});
 			$('body').removeClass('single').addClass('home');
-			$widget.prependTo('.category_posts:visible').attr('style','');
+			//$widget.prependTo('.category_posts:visible').attr('style','');
 			$('.articlewrap').hide();			
 			window.history.pushState({path:href},'',href);
 		});

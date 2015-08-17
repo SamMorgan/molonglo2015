@@ -25,5 +25,23 @@
 		    </ol>
 	    </section>
 	<?php endif;?>
+	<?php 
+		$categories = get_the_category();
 
+	    foreach( $categories as $category ) {
+	        switch($category->category_nicename){
+	        	case "times":
+	        	get_template_part('includes/widget-times');
+	        	break;
+
+	        	case "new":
+	        	get_template_part('includes/widget-new');
+	        	break;
+
+	        	case "roman":
+	        	get_template_part('includes/widget-roman');
+	        	break;	        		        	
+	        } 
+	    }		
+	?>	
 </article>
