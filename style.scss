@@ -96,10 +96,11 @@ header {
     height: 100%;
   }
 }
-
-.clock {
+.widget {
   position:absolute;
-  right:3%;
+  right:3%; 
+}
+.clock {
   width: 60px;
   height: 60px;
   svg {
@@ -111,6 +112,10 @@ header {
     fill:#000;
   }
 }
+.moon {
+  width: 60px;
+  height: 60px;
+} 
 .breadcrumbs {
   display: none;
   position:fixed;
@@ -178,7 +183,6 @@ footer {
   width: 200%;
   position:relative;
   left:0;
-  transition:all 1s;
   .contentwrap {
     width: 50%;
     &.articlewrap {
@@ -190,6 +194,9 @@ footer {
       float: left;
     }
   }
+}
+.home .contentwrap.articlewrap {
+  position:absolute;
 }
 .single {
   .breadcrumbs {

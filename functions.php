@@ -115,6 +115,9 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         wp_die();        
     }
     add_action('wp_ajax_nopriv_load_article', 'load_article');
-    add_action('wp_ajax_load_article', 'load_article');     
+    add_action('wp_ajax_load_article', 'load_article'); 
+
+
+    include( 'MoonPhase.php' );    
 	
 ?>
