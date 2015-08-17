@@ -51,7 +51,7 @@ table {
 body {
   font: 13px Arial,sans-serif;
   width: 100%;
-  //overflow: hidden;
+  overflow: hidden;
 }
 html,
 body {
@@ -122,18 +122,48 @@ header {
   top:34px;
   left:1em;
 }
+#slidewrap {
+  width: 200%;
+  height: 100%;
+  left:0;
+  //overflow: hidden;
+  position:absolute;
+  transition:left 1s;
+}
+.single #slidewrap {
+  left:-100%;
+}
+.sectionwrap {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  overflow: auto;
+  &.articlewrap {
+    //margin: 0 0 0 50%;
+    right:0; 
 
-.main_wrapper {
+  }
+  &.homewrap {
+    left:0;
+    //float: left;
+  }  
+}
+// .single .articlewrap,
+// .home .homewrap {
+//   backface-visibility: hidden;
+// }
+
+.contentwrap {
   min-height: 100%;
   width: 100%;
-  overflow-x: hidden;
   margin-bottom: -90px;
+  overflow-x: hidden;
   &:after {
     content: "";
     display: block;
   }   
 }
-.main_wrapper:after,
+.contentwrap:after,
 footer {
   height: 90px;
 }
@@ -177,22 +207,6 @@ footer {
   // }
   a {
     text-decoration: none;
-  }
-}
-#slidewrap {
-  width: 200%;
-  position:relative;
-  left:0;
-  .contentwrap {
-    width: 50%;
-    &.articlewrap {
-      float: right;
-      top:0;
-      right:0;
-    }
-    &.homewrap {
-      float: left;
-    }
   }
 }
 .home .contentwrap.articlewrap {

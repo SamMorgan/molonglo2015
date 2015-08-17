@@ -54,4 +54,3 @@
 		</nav>
 
 	</header>
-	<div class="main_wrapper">
