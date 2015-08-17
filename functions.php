@@ -105,8 +105,8 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
 
     function load_article(){
         //$postid = url_to_postid( $_POST['post_url'] ); 
-
         $args = array('p' => $_POST['post_id']);
+        //$args = array('p' => $postid);
 
         $post_query = new WP_Query( $args );
         while( $post_query->have_posts() ) : $post_query->the_post(); 

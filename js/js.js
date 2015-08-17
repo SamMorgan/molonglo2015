@@ -86,12 +86,9 @@ jQuery(document).ready(function($){
 		targetElem.slideToggle();
 	});
 
-
-	// slide left //
-	$(document).on('click','.post_link',function(){
-		var $this = $(this),
-			href = $(this).attr('href'),
-			post_id = $(this).data('id');
+	function slideLeft($this){
+		var href = $this.attr('href'),
+			post_id = $this.data('id');
 
 		if($('.article#post-'+post_id).length){
 		    $('body').removeClass('home').addClass('single');
@@ -106,19 +103,23 @@ jQuery(document).ready(function($){
 		        url: sitevars.ajaxurl,
 		        //context: this,
 		        data: {action: 'load_article', post_id: post_id },
+		        //data: {action: 'load_article', post_url: href },
 		        success: function(response) {
 		        	$(response).appendTo('#article-container'); 
 		        	$('body').removeClass('home').addClass('single');
 		        	$this.css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
-		            popups();
-		            	           
+		            popups(); 
 		        }
 		    });
-		}				
+		}
+	}
+	// slide left //
+	$(document).on('click','.post_link',function(){
+		var $this = $(this);
+		slideLeft($this);				
 		return false;
 	});
-
 
 	// slide right //
 	$(document).on('click','#back',function(){
@@ -129,4 +130,19 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+	// Back button //
+	$(window).on("popstate", function(e) {
+		console.log(e.originalEvent.state.path);
+		if (e.originalEvent.state !== null) {
+			var homeUrl = $('#back').attr('href');
+			if(e.originalEvent.state.path === homeUrl || e.originalEvent.state.path === homeUrl+'/'){
+				$('body').removeClass('single').addClass('home');							
+				window.history.pushState({path:e.originalEvent.state.path},'',e.originalEvent.state.path);
+				return false;				
+			}else{
+				var $this = $('a[href^="'+e.originalEvent.state.path+'"]');
+				slideLeft($this);
+			}
+		}
+	});
 });	
