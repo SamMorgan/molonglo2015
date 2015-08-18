@@ -3,7 +3,14 @@
 				<h2><a href="#about" class="category_toggle">About</a></h2>
 				<div class="category_posts">
 					
-				</div>				
+				</div>
+				<?php
+					$page = get_page_by_path( 'about' );
+					$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'full' );
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
+					}					
+				?>				
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
