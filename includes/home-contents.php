@@ -2,7 +2,7 @@
 			<section class="categorywrap about" id="about">
 				<?php $about_page = get_page_by_path( 'about' );?>
 				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>
-				<div class="widget about" id="about-widget"></div>
+				<div class="widget about"><div class="times_ticker"></div></div>
 				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>				
 			</section>
 			<section class="categorywrap times" id="times">

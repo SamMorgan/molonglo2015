@@ -5,7 +5,6 @@
 // @codekit-prepend "/lib/jquery.magnific-popup.custom.min.js";
 
 
-
 jQuery(document).ready(function($){
 
 	var $win = $(window);
@@ -61,11 +60,11 @@ jQuery(document).ready(function($){
 	$(document).on({
 	    mouseenter: function () {
 			var fig = $(this).text(),
-				t = $(this).position().top,
-				h = $('#footnote-'+fig).height(),
-				top = t - h;
+				t = $(this).position().top;
+				//h = $('#footnote-'+fig).height(),
+				//top = t - h;
 
-			$('#footnote-'+fig).css('top',top).show();
+			$('#footnote-'+fig).css('top',t).show();
 	    },
 	    mouseleave: function () {
 	        $('.footnote').hide();
@@ -336,6 +335,7 @@ jQuery(document).ready(function($){
 	});
 
 
+
  	// get Times New Roman text from wiki //
     $.ajax({
         type: "GET",
@@ -356,7 +356,7 @@ jQuery(document).ready(function($){
  
             // remove cite error
             blurb.find('.mw-ext-cite-error').remove();
-            $('#about-widget').html($(blurb).find('p').first());
+            $('.times_ticker').html($(blurb).find('p').first());
  
         }
     });

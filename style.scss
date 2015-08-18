@@ -104,14 +104,33 @@ header {
   position:absolute; 
   top:20px; 
 }
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
 .widget {
   right:3%;
   &.about {
     width: 180px;
     border: 1px solid;
     padding:2px;
+    height: 1em;
+    overflow: hidden;
+    .times_ticker {
+      animation: marquee 20s linear infinite;
+      width: auto;
+      position: absolute;
+      padding: 0 0 0 180px;
+      p {
+        white-space: nowrap;
+      }
+    }
   } 
+
 }
+
+/* liScroll styles (about widget) */
+
 .category_description {
   left:3%;
   @include fortescue;
@@ -361,6 +380,7 @@ footer {
 .article_body {
   width: 75%;
   float: left;
+  padding: 0 0 100px;
   .footnote_marker {
     top:-1em;
     cursor: pointer;
@@ -387,7 +407,6 @@ footer {
 .footnote {
   position:absolute;
   display: none;
-  margin: 2.6em 0 0;
   padding:0;
   p:last-child {
     margin: 0;
