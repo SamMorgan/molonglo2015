@@ -25,14 +25,9 @@
 									
 									if ( has_post_thumbnail() ) { 
 										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
-										the_post_thumbnail('times-thumb');
+										the_post_thumbnail('medium');
 										echo '</a>';									
-									} 
-									echo '<h4>'.get_the_title().'</h4>';
-									$sub_heading = get_field('sub_heading');
-									if($sub_heading){
-										echo '<h5>'.$sub_heading.'</h5>';
-									}								
+									} 								
 									echo '</li>';
 							}
 							echo '</ul>';
@@ -43,7 +38,32 @@
 			<section class="categorywrap new" id="new">
 				<h2><a href="#new" class="category_toggle">New</a></h2>
 				<?php get_template_part('includes/widget-new');?>
-				<div class="category_posts">										
+				<div class="category_posts">
+					<?php 
+						$new_args = array(
+							//'post_type' 	=> 'post',
+							'category_name' => 'new'
+						);
+
+						$new_query = new WP_Query( $new_args );
+		
+						if ( $new_query->have_posts() ) {
+							echo '<ul>';
+							while ( $new_query->have_posts() ) {
+								$new_query->the_post(); 
+									echo '<li>';
+									
+									if ( has_post_thumbnail() ) { 
+										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
+										the_post_thumbnail('times-thumb');
+										echo '</a>';									
+									} 
+									echo '<h4>'.get_the_title().'</h4>';								
+									echo '</li>';
+							}
+							echo '</ul>';
+						}					
+					?>														
 				</div>
 			</section>
 			<section class="categorywrap roman" id="roman">
@@ -60,15 +80,19 @@
 							echo '<ul>';
 							while ( $roman_query->have_posts() ) {
 								$roman_query->the_post(); 
-									echo '<li><a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
-									 
+									echo '<li>';
+									
+									if ( has_post_thumbnail() ) { 
+										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
+										the_post_thumbnail('times-thumb');
+										echo '</a>';									
+									} 
 									echo '<h4>'.get_the_title().'</h4>';
 									$sub_heading = get_field('sub_heading');
 									if($sub_heading){
 										echo '<h5>'.$sub_heading.'</h5>';
-									}
-									the_excerpt();								
-									echo '</a></li>';
+									}								
+									echo '</li>';
 							}
 							echo '</ul>';
 						}					
