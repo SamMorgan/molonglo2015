@@ -62,7 +62,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         // Mobile detects
         switch (true) {         
             case wp_is_mobile() :
-                $classes[] = 'is-mobile';                
+                $classes[] = 'is_mobile';                
                 break;
 
             case is_page() :
@@ -70,7 +70,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
                 break;
 
             default :
-                $classes[] = 'not-mobile';                            
+                $classes[] = 'not_mobile';                            
                 break;
         }
 
@@ -102,7 +102,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         extract(shortcode_atts(array(
           "fig" => 1,
         ), $atts));     
-        return '<sup class="footnote_marker">'.$fig.'</sup>';
+        return '<sup class="footnote_marker" ref="footnote-'.$fig.'">'.$fig.'</sup>';
     }
     add_shortcode( 'footnote', 'footnotes' );
 

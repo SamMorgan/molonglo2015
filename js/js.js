@@ -53,17 +53,36 @@ jQuery(document).ready(function($){
 	popups();	
 
 	// footnotes //
-	$(document).on({
-	    mouseenter: function () {
-			var fig = $(this).text(),
-				t = $(this).position().top;
+	if($win.width() > 480){
+		$(document).on({
+		    mouseenter: function () {
+				var fig = $(this).text(),
+					t = $(this).position().top;
 
-			$('#footnote-'+fig).css('top',t).show();
-	    },
-	    mouseleave: function () {
-	        $('.footnote').hide();
-	    }
-	}, ".footnote_marker");
+				$('#footnote-'+fig).css('top',t).show();
+		    },
+		    mouseleave: function () {
+		        $('.footnote').hide();
+		    }
+		}, ".footnote_marker");
+	}else{
+		$(document).on('click','.footnote_marker',function(){
+			var fig = $(this).text(),
+				figOffset = $('#footnote-'+fig).offset().top,
+				scrollPos = $('.articlewrap').scrollTop(),
+				scroll = figOffset + scrollPos - 90; // 90 = header height
+
+			$('.articlewrap').animate({'scrollTop':scroll},500);	
+		});
+		$(document).on('click','.to_marker',function(){
+			var footnoteId = $(this).closest('.footnote').attr('id'),
+				scrollPos = $('.articlewrap').scrollTop(),
+				MarkerOffset = $('.footnote_marker[ref="'+footnoteId+'"]').offset().top,
+				scrollDist = scrollPos + MarkerOffset - 90;
+
+			$('.articlewrap').animate({'scrollTop':scrollDist},500);
+		});	
+	}
 
 	function footnoteHeight(){
 		if($('.footnote_marker').length){
@@ -142,28 +161,30 @@ jQuery(document).ready(function($){
 	if(window.location.hash){
 		openActiveNavItem(window.location.hash);
 	}
+	if(!$('body').hasClass('is_mobile')){
+		$('.category_toggle').hover(function(){
+			if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
+				$(this).closest('.categorywrap').addClass('hover');
+				$('header').addClass('clear_bg');
+			}
+		},function(){
+			$(this).closest('.categorywrap').removeClass('hover');
+			$('header').removeClass('clear_bg');
+		});
+	
 
-	$('.category_toggle').hover(function(){
-		if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
-			$(this).closest('.categorywrap').addClass('hover');
-			$('header').addClass('clear_bg');
-		}
-	},function(){
-		$(this).closest('.categorywrap').removeClass('hover');
-		$('header').removeClass('clear_bg');
-	});
-
-	$('.about_link').hover(function(){
-		if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
-			$(this).closest('.categorywrap').addClass('hover');
-			$('.about_rollover').show();
-			$('header').addClass('clear_bg');
-		}
-	},function(){
-		$(this).closest('.categorywrap').removeClass('hover');
-		$('.about_rollover').hide();
-		$('header').removeClass('clear_bg');
-	});
+		$('.about_link').hover(function(){
+			if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
+				$(this).closest('.categorywrap').addClass('hover');
+				$('.about_rollover').show();
+				$('header').addClass('clear_bg');
+			}
+		},function(){
+			$(this).closest('.categorywrap').removeClass('hover');
+			$('.about_rollover').hide();
+			$('header').removeClass('clear_bg');
+		});
+	}	
 
 	function loadArticle($this){
 		var href = $this.attr('href'),

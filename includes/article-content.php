@@ -19,7 +19,7 @@
 			<ol>
 		    <?php $i = 1;
 			while ( have_rows('footnotes') ) : the_row();
-			    echo '<li id="footnote-'.$i.'" class="footnote"><span class="footnote_marker">'.$i.'</span>'.get_sub_field('footnote').'</li>';
+			    echo '<li id="footnote-'.$i.'" class="footnote"><span class="footnote_marker">'.$i.'</span><span class="to_marker">BACK</span>'.get_sub_field('footnote').'</li>';
 			    $i++;
 			endwhile;?>
 		    </ol>
