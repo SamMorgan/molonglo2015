@@ -90,14 +90,16 @@ jQuery(document).ready(function($){
 
 		//$category.toggleClass('open');	
 		//$targetElem.slideToggle();
-		if($targetElem.is(':visible')){
-			$category.removeClass('open');
-			$targetElem.slideUp();
+		if($targetElem.is(':visible')){			
+			$targetElem.slideUp(function(){
+				$category.removeClass('open');
+			});
 			window.location.hash = '';
 		}else{
-			if($categoryOpen.length){
-				$categoryOpen.removeClass('open');
-				$categoryOpen.find('.category_posts').slideUp();			
+			if($categoryOpen.length){				
+				$categoryOpen.find('.category_posts').slideUp(function(){
+					$categoryOpen.removeClass('open');
+				});			
 			}
 			$category.addClass('open');
 			$targetElem.slideDown();						
@@ -117,7 +119,10 @@ jQuery(document).ready(function($){
 	}
 
 	$('.category_toggle').hover(function(){
-		$(this).closest('.categorywrap').addClass('hover');
+		console.log($('.categorywrap.hover').length);
+		if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
+			$(this).closest('.categorywrap').addClass('hover');
+		}
 	},function(){
 		$(this).closest('.categorywrap').removeClass('hover');
 	});

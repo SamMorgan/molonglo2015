@@ -3,7 +3,7 @@
 				<h2><a href="#about" class="category_toggle">About</a></h2>
 				<div class="category_posts">
 					
-				</div>
+				</div>				
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
@@ -34,6 +34,12 @@
 						}					
 					?>						
 				</div>
+				<?php 
+					$rollover_img = get_field('rollover_image','category_3');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}
+				?>				
 			</section>
 			<section class="categorywrap new" id="new">
 				<h2><a href="#new" class="category_toggle">New</a></h2>
@@ -65,6 +71,12 @@
 						}					
 					?>														
 				</div>
+				<?php 
+					$rollover_img = get_field('rollover_image','category_4');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}
+				?>				
 			</section>
 			<section class="categorywrap roman" id="roman">
 				<h2><a href="roman" class="category_toggle">Roman</a></h2>
@@ -98,5 +110,11 @@
 						}					
 					?>					
 				</div>
+				<?php 
+					$rollover_img = get_field('rollover_image','category_5');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}
+				?>				
 			</section>
 		</nav>
