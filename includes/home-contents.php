@@ -1,7 +1,9 @@
-		<nav class="main_nav">
+			<nav class="main_nav">
 			<section class="categorywrap about" id="about">
 				<?php $about_page = get_page_by_path( 'about' );?>
-				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>				
+				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>
+				<div class="widget about" id="about-widget"></div>
+				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>				
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
@@ -33,6 +35,8 @@
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
 					}
+
+					echo '<span class="category_description">' . category_description(3) . '</span>';
 				?>				
 			</section>
 			<section class="categorywrap new" id="new">
@@ -66,6 +70,8 @@
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
 					}
+
+					echo '<span class="category_description">' . category_description(4) . '</span>'; 
 				?>				
 			</section>
 			<section class="categorywrap roman" id="roman">
@@ -104,6 +110,8 @@
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
 					}
+
+					echo '<span class="category_description">' . category_description(5) . '</span>';
 				?>				
 			</section>
 		</nav>

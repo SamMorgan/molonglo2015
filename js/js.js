@@ -153,7 +153,7 @@ jQuery(document).ready(function($){
 		    $('body').removeClass('home').addClass('single');
 			window.history.pushState({path:href},'',href);
 		}else{
-			$this.css('cursor', 'progress');	
+			$('*').css('cursor', 'progress');	
 			if($('.article').length){
 				$('.article').remove();
 			}
@@ -166,7 +166,7 @@ jQuery(document).ready(function($){
 		        success: function(response) {
 		        	$(response).appendTo('#article-container'); 
 		        	$('body').removeClass('home').addClass('single');
-		        	$this.css('cursor', 'auto');
+		        	$('*').css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
 		            popups(); 
 		        }
@@ -326,5 +326,30 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+
+ 	// get Times New Roman text from wiki //
+    $.ajax({
+        type: "GET",
+        url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Times_New_Roman&callback=?",
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json",
+        success: function (data) {
+ 
+            var markup = data.parse.text["*"];
+            var blurb = $('<div></div>').html(markup);
+ 
+            // remove links as they will not work
+            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+ 
+            // remove any references
+            blurb.find('sup').remove();
+ 
+            // remove cite error
+            blurb.find('.mw-ext-cite-error').remove();
+            $('#about-widget').html($(blurb).find('p').first());
+ 
+        }
+    });
 
 });	
