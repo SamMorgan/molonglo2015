@@ -64,7 +64,11 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
             case wp_is_mobile() :
                 $classes[] = 'is-mobile';                
                 break;
-            
+
+            case is_page() :
+                $classes[] = 'single';                
+                break;
+
             default :
                 $classes[] = 'not-mobile';                            
                 break;
@@ -103,7 +107,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
     add_shortcode( 'footnote', 'footnotes' );
 
     function load_about(){
-        get_template_part('includes/about-contents');
+        get_template_part('includes/about-content');
         wp_die();        
     }
     add_action('wp_ajax_nopriv_load_about', 'load_about');
