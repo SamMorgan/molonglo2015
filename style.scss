@@ -113,7 +113,7 @@ header {
   &.about {
     width: 180px;
     border: 1px solid;
-    padding:2px;
+    padding:2px 2px 4px;
     height: 1em;
     overflow: hidden;
     .times_ticker {
@@ -380,7 +380,6 @@ footer {
 .article_body {
   width: 75%;
   float: left;
-  padding: 0 0 100px;
   .footnote_marker {
     top:-1em;
     cursor: pointer;
