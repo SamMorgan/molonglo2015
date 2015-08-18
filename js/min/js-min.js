@@ -60,8 +60,12 @@ jQuery(document).ready(function($){
 	// footnotes //
 	$(document).on({
 	    mouseenter: function () {
-			var fig = $(this).text();
-			$('#footnote-'+fig).show();
+			var fig = $(this).text(),
+				t = $(this).position().top,
+				h = $('#footnote-'+fig).height(),
+				top = t - h;
+
+			$('#footnote-'+fig).css('top',top).show();
 	    },
 	    mouseleave: function () {
 	        $('.footnote').hide();
