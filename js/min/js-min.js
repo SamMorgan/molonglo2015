@@ -173,6 +173,7 @@ jQuery(document).ready(function($){
 		        //data: {action: 'load_article', post_url: href },
 		        success: function(response) {
 		        	$(response).appendTo('#article-container'); 
+		        	$('footer').clone().appendTo('.articlewrap');
 		        	$('body').removeClass('home').addClass('single');
 		        	$('*').css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
