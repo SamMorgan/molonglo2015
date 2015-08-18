@@ -1,27 +1,14 @@
 		<nav class="main_nav">
 			<section class="categorywrap about" id="about">
-				<h2><a href="#about" class="category_toggle">About</a></h2>
-				<div class="category_posts">
-					
-				</div>
-				<?php
-					$page = get_page_by_path( 'about' );
-					$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($page->ID), 'full' );
-					if($rollover_img){
-						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
-					}					
-				?>				
+				<?php $about_page = get_page_by_path( 'about' );?>
+				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>				
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
 				<?php get_template_part('includes/widget-times');?>
 				<div class="category_posts">			        				
 					<?php 
-						$times_args = array(
-							//'post_type' 	=> 'post',
-							'category_name' => 'times'
-						);
-
+						$times_args = array('category_name' => 'times');
 						$times_query = new WP_Query( $times_args );
 		
 						if ( $times_query->have_posts() ) {
@@ -53,11 +40,7 @@
 				<?php get_template_part('includes/widget-new');?>
 				<div class="category_posts">
 					<?php 
-						$new_args = array(
-							//'post_type' 	=> 'post',
-							'category_name' => 'new'
-						);
-
+						$new_args = array('category_name' => 'new');
 						$new_query = new WP_Query( $new_args );
 		
 						if ( $new_query->have_posts() ) {
@@ -92,7 +75,6 @@
 									
 					<?php 
 						$roman_args = array('category_name' => 'roman');
-
 						$roman_query = new WP_Query( $roman_args );
 		
 						if ( $roman_query->have_posts() ) {
@@ -125,3 +107,9 @@
 				?>				
 			</section>
 		</nav>
+		<?php
+			$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($about_page->ID), 'full' );
+			if($rollover_img){
+				echo '<div class="bg_rollover about_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
+			}					
+		?>		

@@ -102,6 +102,13 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
     }
     add_shortcode( 'footnote', 'footnotes' );
 
+    function load_about(){
+        get_template_part('includes/about-contents');
+        wp_die();        
+    }
+    add_action('wp_ajax_nopriv_load_about', 'load_about');
+    add_action('wp_ajax_load_about', 'load_about'); 
+
 
     function load_article(){
         //$postid = url_to_postid( $_POST['post_url'] ); 

@@ -90,6 +90,7 @@ jQuery(document).ready(function($){
 
 		//$category.toggleClass('open');	
 		//$targetElem.slideToggle();
+
 		if($targetElem.is(':visible')){			
 			$targetElem.slideUp(function(){
 				$category.removeClass('open');
@@ -119,7 +120,6 @@ jQuery(document).ready(function($){
 	}
 
 	$('.category_toggle').hover(function(){
-		console.log($('.categorywrap.hover').length);
 		if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
 			$(this).closest('.categorywrap').addClass('hover');
 		}
@@ -127,7 +127,17 @@ jQuery(document).ready(function($){
 		$(this).closest('.categorywrap').removeClass('hover');
 	});
 
-	function slideLeft($this){
+	$('.about_link').hover(function(){
+		if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
+			$(this).closest('.categorywrap').addClass('hover');
+			$('.about_rollover').show();
+		}
+	},function(){
+		$(this).closest('.categorywrap').removeClass('hover');
+		$('.about_rollover').hide();
+	});
+
+	function loadArticle($this){
 		var href = $this.attr('href'),
 			post_id = $this.data('id'),
 			cat = $this.closest('.categorywrap').attr('id');
@@ -163,7 +173,7 @@ jQuery(document).ready(function($){
 	// to article //
 	$(document).on('click','.post_link',function(){
 		var $this = $(this);
-		slideLeft($this);				
+		loadArticle($this);				
 		return false;
 	});
 
@@ -191,8 +201,106 @@ jQuery(document).ready(function($){
 				return false;				
 			}else{
 				var $this = $('a[href^="'+e.originalEvent.state.path+'"]');
-				slideLeft($this);
+				loadArticle($this);
 			}
 		}
 	});
+
+
+	// About //
+	var strSlow = $('#type-string .slow').html(),
+		strFast = $('#type-string .fast').html(),
+		$typeAnimSlow = $('#type-anim-slow'),
+		$typeAnimFast = $('#type-anim-fast'),
+	    i = 0,
+	    isTag,typeTimer,newh,h,char;
+	   
+
+
+	function type() {
+		
+	    var text = strSlow.slice(0, ++i);			    
+	    
+	    if (text === strSlow){
+				
+			    text = strFast.slice(0, ++i);					    
+			    if (text === strFast){
+					return;
+				}											
+			    document.getElementById('type-anim-fast').innerHTML = text;
+
+			    var slowHeight = $typeAnimSlow.height();
+			    	newh = $typeAnimFast.height() + slowHeight;
+			    	h = 0;
+			    if(newh > h){
+			    	$('#typewriter').height(newh);
+			    	h = newh;
+			
+			    }					    
+				char = text.slice(-1);
+				if( char === '<' ){ isTag = true; }
+				if( char === '>' ){ isTag = false; }
+				
+				if (isTag){ return type(); }			   
+				typeTimer = setTimeout(type,1);					
+				
+			return;
+		}	
+						
+	    document.getElementById('type-anim-slow').innerHTML = text;
+	    			    
+	    newh = $typeAnimSlow.height();
+	    h = 0;
+	    if(newh > h){
+	    	$('#typewriter').height(newh);
+	    	h = newh;			
+	    }
+	    
+		char = text.slice(-1);
+		if( char === '<' ){ isTag = true; }
+		if( char === '>' ){ isTag = false; }
+		
+		if (isTag){ return type(); }			   
+		typeTimer = setTimeout(type,80);
+							   
+	}
+				
+	//type();
+	function loadAbout(){
+		var $this = $('.about_link');
+		var href = $this.attr('href');
+
+		$('.breadcrumbs a').removeClass('active');
+		$('.breadcrumbs a.about').addClass('active');	
+
+		if($('.article#about-contents').length){
+		    $('body').removeClass('home').addClass('single');
+			window.history.pushState({path:href},'',href);
+		}else{
+			$this.css('cursor', 'progress');	
+			if($('.article').length){
+				$('.article').remove();
+			}
+		    $.ajax({
+		        type: 'POST',
+		        url: sitevars.ajaxurl,
+		        //context: this,
+		        data: {action: 'load_about' },
+		        //data: {action: 'load_article', post_url: href },
+		        success: function(response) {
+		        	$(response).appendTo('#article-container'); 
+		        	$('body').removeClass('home').addClass('single');
+		        	$this.css('cursor', 'auto');
+					window.history.pushState({path:href},'',href);
+		            type();
+		        }
+		    });
+		}
+	}
+	$(document).on('click','.about_link',function(){
+		loadAbout();				
+		return false;
+	});
+
+
 });	

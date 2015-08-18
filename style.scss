@@ -190,7 +190,9 @@ header {
   display: none;
   background-size:cover;
   background-position:center center;
-  background-attachment: fixed;
+  &.about_rollover {
+    position:absolute;
+  }
 }
 .clock {
   width: 60px;
@@ -375,6 +377,24 @@ footer {
   margin: 0 0 0 0.5em;
 }
 
+// About //
+#typewriter {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+#type-string {
+  opacity: 0;
+  position: relative;
+
+}
+#type-anim {
+  position: absolute;
+  top:0;
+  left:0;
+  pointer-events:none;
+  z-index: 0;
+}
 
 //footer //
 footer {
