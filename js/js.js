@@ -114,6 +114,8 @@ jQuery(document).ready(function($){
 			mainNavPadding = ($win.height() - mainNavH)/2;
 		if(mainNavPadding > 90){	
 			mainNav.css('padding-top',mainNavPadding+"px").show();
+		}else{
+			mainNav.show();
 		}
 	}
 	
