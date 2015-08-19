@@ -172,6 +172,7 @@ header {
       li {
         display: inline-block;
         text-align:left;
+        vertical-align: top;
       }
     }
     h4 {
@@ -191,7 +192,7 @@ header {
   &.new,
   &.roman {
     li {
-      width: 20%;
+      max-width: 20%;
       display: inline-block;
       margin: 0 2% 4%;
       img {
@@ -233,9 +234,12 @@ header {
     position:absolute;
   }
 }
-.clock {
+.clock, 
+.moon {
   width: 60px;
-  height: 60px;
+  height: 60px; 
+}
+.clock {
   svg {
     width: 100%;
     height: 100%;
@@ -245,9 +249,18 @@ header {
     fill:#000;
   }
 }
+.widget.new {
+  text-align: center;
+  span {
+    display: block;
+    font-size: 10px;
+    margin: 0.5em 0 0;
+    text-transform: uppercase;
+  }
+}
 .moon {
-  width: 60px;
-  height: 60px;
+  margin: 0 auto;
+  display: block;  
 } 
 .breadcrumbs {
   display: none;
@@ -536,5 +549,10 @@ footer {
   }
   .crumb {
     display: none;
+  }
+  .clock,
+  .moon {
+    width: 40px;
+    height: 40px;
   }
 } 

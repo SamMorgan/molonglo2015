@@ -161,7 +161,7 @@ jQuery(document).ready(function($){
 	if(window.location.hash){
 		openActiveNavItem(window.location.hash);
 	}
-	if(!$('body').hasClass('is_mobile')){
+	if($('body').hasClass('not_mobile') || $win.width() > 480){
 		$('.category_toggle').hover(function(){
 			if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
 				$(this).closest('.categorywrap').addClass('hover');
