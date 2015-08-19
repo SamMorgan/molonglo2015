@@ -9,7 +9,7 @@
 	    </div>		
 	</div>
 	<div class="cols3 col3of3">
-		<span class="letter">P</span>+612 6287 6170<br>
-		<span class="letter">E</span><a href="mailto:hello@molonglogroup.com.au">hello@molonglogroup.com.au</a>
+		<span class="letter">P</span><a href="tel:+612 6287 6170">+612 6287 6170</a><br>
+		<span class="letter">E</span><a href="mailto:&#104;&#101;&#108;&#108;&#111;&#064;&#109;&#111;&#108;&#111;&#110;&#103;&#108;&#111;&#103;&#114;&#111;&#117;&#112;&#046;&#099;&#111;&#109;&#046;&#097;&#117;">&#104;&#101;&#108;&#108;&#111;&#064;&#109;&#111;&#108;&#111;&#110;&#103;&#108;&#111;&#103;&#114;&#111;&#117;&#112;&#046;&#099;&#111;&#109;&#046;&#097;&#117;</a>
 	</div>	
 </footer>
