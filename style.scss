@@ -356,7 +356,7 @@ footer {
   font-size: 33px;
   line-height: 1.6em;
   overflow: hidden;
-  margin:3em 1em 0;
+  margin: 90px 1em 0;
   position:relative;
   p {
     margin: 0 0 1.6em;
@@ -389,10 +389,10 @@ footer {
 .article_body {
   width: 75%;
   float: left;
-  .footnote_marker {
-    top:-1em;
-    cursor: pointer;
-  }
+}
+.footnote_marker {
+  top:-1em;
+  cursor: pointer;
 }
 .footnotes {
   width: 25%;
@@ -501,11 +501,22 @@ footer {
   .cols3.col2of3 {
     width: 100%;
   }
+  .article {
+    font-size: 18px;
+    line-height: 26px;
+    .popup_img img {
+      height: 78px;
+      width: auto;
+    }
+  }
   .article_body {
     width: 100%;
     float: none;
     min-height: auto !important;
   }
+  .footnote_marker {
+    top:0;
+  }  
   .footnotes {
     position:relative;
     width: 100%;
@@ -516,6 +527,8 @@ footer {
     top: auto !important;
     position:relative;
     padding: 1em 0 0;
+    font-size:10px;
+    line-height: 1.4em;
     .to_marker {
       display: inline-block;
       margin: 0 0 0 0.5em;
