@@ -102,7 +102,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         extract(shortcode_atts(array(
           "fig" => 1,
         ), $atts));     
-        return '<sup class="footnote_marker" ref="footnote-'.$fig.'">'.$fig.'</sup>';
+        return '<sup class="footnote_marker footnote-'.$fig.'">'.$fig.'</sup>';
     }
     add_shortcode( 'footnote', 'footnotes' );
 

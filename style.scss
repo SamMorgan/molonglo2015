@@ -50,6 +50,7 @@ table {
 
 body {
   font: 13px Arial,sans-serif;
+  -webkit-overflow-scrolling: touch;
 }
 html,
 body {
@@ -316,7 +317,6 @@ header {
   min-height: 100%;
   width: 100%;
   margin-bottom: -90px;
-  overflow-x: hidden;
   &:after {
     content: "";
     display: block;
@@ -503,9 +503,23 @@ footer {
   }   
 }
 @media screen and (max-width: 480px) {
-  .categorywrap.new li,
-  .categorywrap.roman li {
-    width: 44%;
+  .main_nav {
+    padding: 90px 0 0; 
+  }
+  .categorywrap {
+    h2 {
+      font-size: 50px;
+    }
+    &.new li,
+    &.roman li {
+      max-width: 44%;
+    }
+    &.times li img {
+      height: 120px;
+    }
+    &.open .category_description {
+      display: none;
+    }  
   }
   footer .col1of3,
   footer .col3of3 {
@@ -545,14 +559,23 @@ footer {
     .to_marker {
       display: inline-block;
       margin: 0 0 0 0.5em;
+      width: 40px;
+      height: 30px;
+      vertical-align: top;
     }    
   }
   .crumb {
     display: none;
   }
-  .clock,
-  .moon {
+  .clock {
     width: 40px;
     height: 40px;
+  }
+  .moon {
+    width: 22px;
+    height: 22px;    
+  }
+  .widget.new span {
+    font-size: 8px;
   }
 } 

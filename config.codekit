@@ -230,11 +230,11 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/moonphase.php": {
+	"\/MoonPhase.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/moonphase.php",
+		"inputAbbreviatedPath": "\/MoonPhase.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -488,7 +488,7 @@
 	"javascriptCreateSourceMap": 1,
 	"javascriptOutputStyle": 1,
 	"javascriptSyntaxCheckerStyle": 1,
-	"jsCheckerReservedNamesString": "sitevars,console",
+	"jsCheckerReservedNamesString": "sitevars,console,alert",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,

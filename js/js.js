@@ -71,15 +71,14 @@ jQuery(document).ready(function($){
 				figOffset = $('#footnote-'+fig).offset().top,
 				scrollPos = $('.articlewrap').scrollTop(),
 				scroll = figOffset + scrollPos - 90; // 90 = header height
-
 			$('.articlewrap').animate({'scrollTop':scroll},500);	
 		});
-		$(document).on('click','.to_marker',function(){
+		$(document).on('click','.to_marker',function(){	
 			var footnoteId = $(this).closest('.footnote').attr('id'),
 				scrollPos = $('.articlewrap').scrollTop(),
-				MarkerOffset = $('.footnote_marker[ref="'+footnoteId+'"]').offset().top,
+				MarkerOffset = $('.footnote_marker.'+footnoteId).offset().top,
 				scrollDist = scrollPos + MarkerOffset - 90;
-
+				
 			$('.articlewrap').animate({'scrollTop':scrollDist},500);
 		});	
 	}
@@ -200,7 +199,7 @@ jQuery(document).ready(function($){
 		    $('body').removeClass('home').addClass('single');
 			window.history.pushState({path:href},'',href);
 		}else{
-			$('*').css('cursor', 'progress');	
+			$this.css('cursor', 'progress');	
 			if($('.article').length){
 				$('.article').remove();
 			}
@@ -214,7 +213,7 @@ jQuery(document).ready(function($){
 		        	$(response).appendTo('#article-container'); 
 		        	//$('footer').clone().appendTo('.articlewrap');
 		        	$('body').removeClass('home').addClass('single');
-		        	$('*').css('cursor', 'auto');
+		        	$this.css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
 		            popups(); 
 		            footnoteHeight();
