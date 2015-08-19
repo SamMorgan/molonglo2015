@@ -4,16 +4,16 @@
         
         <div class="sectionwrap homewrap">
             <div class="contentwrap">
-                <?php get_template_part('includes/home-contents');?>
+                <?php get_template_part('includes/home-content');?>
             </div>
-            <?php get_template_part('includes/footer-contents');?>      
+            <?php get_template_part('includes/footer-content');?>      
         </div> 
 
         <div class="sectionwrap articlewrap">
             <div class="contentwrap" id="article-container">
-                <?php get_template_part('includes/about-contents');?>
+                <?php get_template_part('includes/about-content');?>
             </div>
-            <?php get_template_part('includes/footer-contents');?>
+            <?php get_template_part('includes/footer-content');?>
         </div>
 
     </div>
