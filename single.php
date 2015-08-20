@@ -4,9 +4,9 @@
 		
 		<div class="sectionwrap homewrap">
 			<div class="contentwrap">
-				<?php get_template_part('includes/home-contents');?>
+				<?php get_template_part('includes/home-content');?>
 			</div>
-			<?php get_template_part('includes/footer-contents');?>		
+			<?php get_template_part('includes/footer-content');?>		
 		</div> 
 
 		<div class="sectionwrap articlewrap">
@@ -19,7 +19,7 @@
 					endwhile;
 				?>
 			</div>
-			<?php get_template_part('includes/footer-contents');?>		
+			<?php get_template_part('includes/footer-content');?>		
 		</div>
 
 	</div>
