@@ -52,6 +52,16 @@ jQuery(document).ready(function($){
 	}
 	popups();	
 
+	$('.bg_rollover').each(function(){
+		var $this = $(this),
+			bg = $(this).css('background-image');
+			bg = bg.replace('url(','').replace(')','');
+		$('<img/>').attr('src', bg).load(function() {
+			$(this).remove(); 
+			$this.addClass('loaded');
+		});
+	});
+	
 	// footnotes //
 	// if($win.width() > 480){
 	// 	$(document).on({

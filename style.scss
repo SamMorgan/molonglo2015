@@ -156,7 +156,7 @@ header {
     }
   }
   &.hover {    
-    .bg_rollover {
+    .bg_rollover.loaded {
       display: block;
     }
   }
@@ -227,7 +227,7 @@ header {
   //   }      
   // }
 }
-.bg_rollover {
+.bg_rollover.loaded {
   position:fixed;
   width: 100%;
   height: 100%;
