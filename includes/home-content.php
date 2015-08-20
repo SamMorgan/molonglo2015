@@ -7,7 +7,15 @@
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
-				<?php get_template_part('includes/widget-times');?>
+				<?php 
+					$rollover_img = get_field('rollover_image','category_3');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}
+
+					echo '<span class="category_description">' . category_description(3) . '</span>';
+				?>				
+				<?php get_template_part('includes/widget-times');?>				
 				<div class="category_posts">			        				
 					<?php 
 						$times_args = array('category_name' => 'times');
@@ -29,18 +37,18 @@
 							echo '</ul>';
 						}					
 					?>						
-				</div>
+				</div>				
+			</section>
+			<section class="categorywrap new" id="new">
+				<h2><a href="#new" class="category_toggle">New</a></h2>
 				<?php 
-					$rollover_img = get_field('rollover_image','category_3');
+					$rollover_img = get_field('rollover_image','category_4');
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
 					}
 
-					echo '<span class="category_description">' . category_description(3) . '</span>';
+					echo '<span class="category_description">' . category_description(4) . '</span>'; 
 				?>				
-			</section>
-			<section class="categorywrap new" id="new">
-				<h2><a href="#new" class="category_toggle">New</a></h2>
 				<?php get_template_part('includes/widget-new');?>
 				<div class="category_posts">
 					<?php 
@@ -55,7 +63,7 @@
 									
 									if ( has_post_thumbnail() ) { 
 										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
-										the_post_thumbnail('times-thumb');
+										the_post_thumbnail('full');
 										echo '</a>';									
 									} 
 									echo '<h4>'.get_the_title().'</h4>';								
@@ -64,18 +72,18 @@
 							echo '</ul>';
 						}					
 					?>														
-				</div>
+				</div>				
+			</section>
+			<section class="categorywrap roman" id="roman">
+				<h2><a href="roman" class="category_toggle">Roman</a></h2>
 				<?php 
-					$rollover_img = get_field('rollover_image','category_4');
+					$rollover_img = get_field('rollover_image','category_5');
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
 					}
 
-					echo '<span class="category_description">' . category_description(4) . '</span>'; 
+					echo '<span class="category_description">' . category_description(5) . '</span>';
 				?>				
-			</section>
-			<section class="categorywrap roman" id="roman">
-				<h2><a href="roman" class="category_toggle">Roman</a></h2>
 				<?php get_template_part('includes/widget-roman');?>
 				<div class="category_posts">
 									
@@ -104,15 +112,7 @@
 							echo '</ul>';
 						}					
 					?>					
-				</div>
-				<?php 
-					$rollover_img = get_field('rollover_image','category_5');
-					if($rollover_img){
-						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
-					}
-
-					echo '<span class="category_description">' . category_description(5) . '</span>';
-				?>				
+				</div>				
 			</section>
 		</nav>
 		<?php

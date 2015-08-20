@@ -190,6 +190,12 @@ header {
       }
     }
   }
+  &.new {
+    h4 {
+      @include fortescue;
+      text-decoration: none;
+    }
+  }
   &.new,
   &.roman {
     li {
@@ -403,10 +409,6 @@ footer {
   width: 75%;
   float: left;
 }
-.footnote_marker {
-  top:-1em;
-  cursor: pointer;
-}
 .footnotes {
   width: 25%;
   position: absolute;
@@ -424,6 +426,8 @@ footer {
   font-size:16px;
   padding: 0 3px;
   position: relative;
+  top:-1em;
+  cursor: pointer;  
 }
 .footnote {
   position:absolute;
@@ -432,11 +436,20 @@ footer {
   p:last-child {
     margin: 0;
   }
-  .to_marker {
-    display: none;
+  .footnote_marker {
+    top:0;
+  }
+  div {
+    margin: 0.5em 0 0;
   }
 }
-
+.article_body .footnote {
+  display: block;
+  padding: 0.5em 0 1em 2em; 
+  .footnote_marker {
+    display: none;
+  }
+}  
 .alignleft {
   float: left;
   margin: 0 0.5em 0 0;
@@ -510,7 +523,11 @@ footer {
     h2 {
       font-size: 50px;
     }
-    &.new li,
+    &.new li {
+      max-width: 96%;
+      height: auto;
+      width: 96%;      
+    }
     &.roman li {
       max-width: 44%;
     }
@@ -518,16 +535,34 @@ footer {
       height: 120px;
     }
     &.open .category_description {
-      display: none;
+      display: block;
+      position: relative;
+      top: auto;
+      text-align: center;
+      left: auto;
+      margin: 0 0 1em;
     }  
   }
-  footer .col1of3,
-  footer .col3of3 {
-    display: none;
+  .contentwrap {
+    margin-bottom: -110px; 
   }
-  .cols3.col2of3 {
-    width: 100%;
-  }
+  .contentwrap:after,
+  footer {
+    height: 110px;
+  }  
+  footer {
+    .cols3 {
+      padding: 1em 0 0;
+      &.col1of3 {
+        display: none;
+      }
+      &.col2of3,
+      &.col3of3 {
+        width: 96%;
+        margin: 0 2%;
+      }
+    }  
+  }  
   .article {
     font-size: 18px;
     line-height: 26px;
@@ -544,25 +579,16 @@ footer {
   .footnote_marker {
     top:0;
   }  
-  .footnotes {
-    position:relative;
-    width: 100%;
-    padding:0;
-  }
   .footnote {
-    display: block !important;
     top: auto !important;
     position:relative;
-    padding: 1em 0 0;
     font-size:10px;
-    line-height: 1.4em;
-    .to_marker {
-      display: inline-block;
-      margin: 0 0 0 0.5em;
-      width: 40px;
-      height: 30px;
-      vertical-align: top;
-    }    
+    line-height: 1.4em;   
+  }
+  .footnotes {
+    width: 100%;
+    padding:0;
+    top:auto;
   }
   .crumb {
     display: none;
