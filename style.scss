@@ -519,6 +519,25 @@ footer {
     width: 30%;
   }   
 }
+@media screen and (max-width: 900px) {
+  .article {
+    font-size: 21px;
+    line-height: 32px;
+    .popup_img img {
+      height: 96px;
+      width: auto;
+    }
+  }
+  .breadcrumbs {
+    font-size: 13px;
+  } 
+  .footnote_marker {
+    top:-3px;
+  }
+  .footnotes {
+    font-size: 10px;
+  } 
+}  
 @media screen and (max-width: 480px) {
   .main_nav {
     padding: 90px 0 0; 
