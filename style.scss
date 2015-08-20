@@ -160,6 +160,7 @@ header {
       display: block;
     }
   }
+  &.hover.open,
   &.open {
     .bg_rollover {
       display: none;
@@ -273,7 +274,7 @@ header {
   display: none;
   position:fixed;
   top:34px;
-  left:1em;
+  left:3%;
   @include fortescue;
   a {
     text-decoration: none;
@@ -375,7 +376,7 @@ footer {
   font-size: 33px;
   line-height: 1.6em;
   overflow: hidden;
-  margin: 90px 1em 0;
+  margin: 90px 3% 0;
   position:relative;
   p {
     margin: 0 0 1.6em;
