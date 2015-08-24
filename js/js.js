@@ -62,95 +62,37 @@ jQuery(document).ready(function($){
 		});
 	});
 	
-	// footnotes //
-	// if($win.width() > 480){
-	// 	$(document).on({
-	// 	    mouseenter: function () {
-	// 			var fig = $(this).text(),
-	// 				t = $(this).position().top;
-
-	// 			$('#footnote-'+fig).css('top',t).show();
-	// 	    },
-	// 	    mouseleave: function () {
-	// 	        $('.footnote').hide();
-	// 	    }
-	// 	}, ".footnote_marker");
-	// }else{
-	// 	$(document).on('click','.footnote_marker',function(){
-	// 		var fig = $(this).text(),
-	// 			figOffset = $('#footnote-'+fig).offset().top,
-	// 			scrollPos = $('.articlewrap').scrollTop(),
-	// 			scroll = figOffset + scrollPos - 90; // 90 = header height
-	// 		$('.articlewrap').animate({'scrollTop':scroll},500);	
-	// 	});
-	// 	$(document).on('click','.to_marker',function(){	
-	// 		var footnoteId = $(this).closest('.footnote').attr('id'),
-	// 			scrollPos = $('.articlewrap').scrollTop(),
-	// 			MarkerOffset = $('.footnote_marker.'+footnoteId).offset().top,
-	// 			scrollDist = scrollPos + MarkerOffset - 90;
-				
-	// 		$('.articlewrap').animate({'scrollTop':scrollDist},500);
-	// 	});	
-	// }
-	function showFootnote($this){
-    	var fig = $this.text();
-    	if($win.width() > 480){
-			var t = $this.position().top;
-			$('#footnote-'+fig).css('top',t).show();
-		}else{
+	$(document).on('click','.footnote_marker',function(){
+		if($(this).hasClass('footnote_open')){
+			$('.article_body .footnote').remove();
+			$(this).removeClass('footnote_open');	
+		}else{				
+	    	var fig = $(this).text();
 			var footnote = $('#footnote-'+fig).clone();
-			$this.addClass('footnote_open').after(footnote);
-		}
-	}
-	function hideFootnote(){
-		if($('.article_body .footnote').length === 0){
-			$('.footnote').hide();
-		}else{
-		    $('.article_body .footnote').remove();
-		    $(this).removeClass('footnote_open');
-		}	
-	}
+			$(this).addClass('footnote_open').after(footnote);
+		}		
+	});			
 
-	if($('body').hasClass('not_mobile')){
-		$(document).on({
-		    mouseenter: function () {
-		    	showFootnote($(this));
-		    },
-		    mouseleave: function () {
-		        hideFootnote();
-		    }
-		}, ".footnote_marker");
-	}else{
-		$(document).on('click','.footnote_marker',function(){
-			if($(this).hasClass('footnote_open')){
-		    	hideFootnote();
-			}else{
-				showFootnote($(this));	
-			}		
-		});		
-	}	
-	
+	// function footnoteHeight(){
+	// 	if($('.footnote_marker').length){
+	// 		var totalHeight = 0,
+	// 			count = $('.footnote_marker').length;
 
-	function footnoteHeight(){
-		if($('.footnote_marker').length){
-			var totalHeight = 0,
-				count = $('.footnote_marker').length;
-
-			$('.footnote_marker').each(function(){
-				var p = $(this).position().top,
-					fig = $(this).text(),
-					h = $('#footnote-'+fig).height(),
-					fh = p + h;
-				if(fh > totalHeight){
-					totalHeight = Math.ceil(fh);
-				}
-				if (!--count){
-					$('.article_body').css('min-height',totalHeight+"px");
-				}
-			});
-		}
-	}	
-	footnoteHeight();
+	// 		$('.footnote_marker').each(function(){
+	// 			var p = $(this).position().top,
+	// 				fig = $(this).text(),
+	// 				h = $('#footnote-'+fig).height(),
+	// 				fh = p + h;
+	// 			if(fh > totalHeight){
+	// 				totalHeight = Math.ceil(fh);
+	// 			}
+	// 			if (!--count){
+	// 				$('.article_body').css('min-height',totalHeight+"px");
+	// 			}
+	// 		});
+	// 	}
+	// }	
+	// footnoteHeight();
 
 
 
@@ -171,7 +113,6 @@ jQuery(document).ready(function($){
 
 	$win.resize(function(){
 		mainNavCenter();
-		footnoteHeight();
 	});
 
 	// Main nav //
@@ -265,7 +206,6 @@ jQuery(document).ready(function($){
 		        	$this.css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
 		            popups(); 
-		            footnoteHeight();
 		        }
 		    });
 		}

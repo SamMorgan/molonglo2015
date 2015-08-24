@@ -387,8 +387,9 @@ footer {
 // }
 // Article //
 .article {
+  font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; 
   font-size: 33px;
-  line-height: 1.6em;
+  line-height: 50px;
   overflow: hidden;
   margin: 90px 3% 0;
   position:relative;
@@ -400,6 +401,55 @@ footer {
     top:34px;
     height:21px;
   }
+  .popup_img img {
+    display: block;
+  }
+  .popup_img.line_height_1 img {
+    height: 1em;
+    width: auto;
+  }
+  .popup_img.line_height_2 img {
+    height: 2em;
+    width: auto;
+  }
+  .popup_img.line_height_3 img {
+    height: 3em;
+    width: auto;
+  }
+  .popup_img.line_height_4 img {
+    height: 3em;
+    width: auto;
+  }
+  .footnote {
+    font-size: 16px;
+    line-height: 1.3em;    
+    font-family: Arial,sans-serif;
+  }  
+}
+.alignleft {
+  float: left;
+  margin: 0 0.5em 0 0;
+} 
+.alignright {
+  float: right;
+  margin: 0 0 0 0.5em;
+}
+.aligncenter {
+  margin: 0 auto;
+  display: block;
+}
+.article_body {
+  width: 100%;
+  float: none;
+  min-height: auto !important;
+}
+.footnote_marker {
+  top:0;
+}  
+.footnotes {
+  width: 100%;
+  padding:0;
+  top:auto;
 }
 .articlewrap nav {
   z-index: 3;
@@ -408,21 +458,6 @@ footer {
 
 .article_heading {
   margin: 0 0 3em;
-}
-.article_body {
-  width: 75%;
-  float: left;
-}
-.footnotes {
-  width: 25%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0 0 0 2em;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 1.3em;
-  height: 100%;
 }
 .footnote_marker {
   color:#fff;
@@ -434,7 +469,7 @@ footer {
   cursor: pointer;  
 }
 .footnote {
-  position:absolute;
+  //position:absolute;
   display: none;
   padding:0;
   p:last-child {
@@ -454,14 +489,6 @@ footer {
     display: none;
   }
 }  
-.alignleft {
-  float: left;
-  margin: 0 0.5em 0 0;
-} 
-.alignright {
-  float: right;
-  margin: 0 0 0 0.5em;
-}
 
 // About //
 #typewriter {
@@ -593,25 +620,6 @@ footer {
       height: 78px;
       width: auto;
     }
-  }
-  .article_body {
-    width: 100%;
-    float: none;
-    min-height: auto !important;
-  }
-  .footnote_marker {
-    top:0;
-  }  
-  .footnote {
-    top: auto !important;
-    position:relative;
-    font-size:10px;
-    line-height: 1.4em;   
-  }
-  .footnotes {
-    width: 100%;
-    padding:0;
-    top:auto;
   }
   .crumb {
     display: none;

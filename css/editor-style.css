@@ -9,3 +9,18 @@ body#tinymce.wp-editor .alignleft {
 body#tinymce.wp-editor .alignright {
 	margin: 0 0 0 0.5em;
 }
+body#tinymce.wp-editor .popup_img img {
+	width: auto;
+}
+body#tinymce.wp-editor .popup_img.line_height_1 img {
+	height: 1em;
+}
+body#tinymce.wp-editor .popup_img.line_height_2 img {
+	height: 2em;
+}
+body#tinymce.wp-editor .popup_img.line_height_3 img {
+	height: 3em;
+}
+body#tinymce.wp-editor .popup_img.line_height_4 img {
+	height: 3em;
+}
