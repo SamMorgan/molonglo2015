@@ -18,7 +18,7 @@
 				<?php get_template_part('includes/widget-times');?>				
 				<div class="category_posts">			        				
 					<?php 
-						$times_args = array('category_name' => 'times');
+						$times_args = array('category_name' => 'times','posts_per_page'=>-1);
 						$times_query = new WP_Query( $times_args );
 		
 						if ( $times_query->have_posts() ) {
@@ -52,7 +52,7 @@
 				<?php get_template_part('includes/widget-new');?>
 				<div class="category_posts">
 					<?php 
-						$new_args = array('category_name' => 'new');
+						$new_args = array('category_name' => 'new','posts_per_page'=> -1);
 						$new_query = new WP_Query( $new_args );
 		
 						if ( $new_query->have_posts() ) {
@@ -88,7 +88,7 @@
 				<div class="category_posts">
 									
 					<?php 
-						$roman_args = array('category_name' => 'roman');
+						$roman_args = array('category_name' => 'roman','posts_per_page'=>-1);
 						$roman_query = new WP_Query( $roman_args );
 		
 						if ( $roman_query->have_posts() ) {
