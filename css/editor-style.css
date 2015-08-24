@@ -24,3 +24,12 @@ body#tinymce.wp-editor .popup_img.line_height_3 img {
 body#tinymce.wp-editor .popup_img.line_height_4 img {
 	height: 3em;
 }
+body#tinymce.wp-editor .centerwrap {
+  display: block;
+  text-align:center;
+  display: inline-block;
+}  
+body#tinymce.wp-editor .centerwrap img {
+    display: inline-block;
+    float: none;
+}

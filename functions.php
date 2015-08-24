@@ -8,22 +8,22 @@
 	//add_image_size( 'banner-thumb', 566, 250, true ); // Small thumbnail size
     add_image_size( 'square-thumb', 256, 256, true ); // Square thumbnail used by sharethis and facebook
     add_image_size( 'times-thumb', 190, 265, true );
-    add_image_size( '288-height', 999, 288, false );	
-    add_image_size( '238-height', 999, 238, false );
-    add_image_size( '188-height', 999, 188, false );
-    add_image_size( '138-height', 999, 138, false );
-    add_image_size( '88-height', 999, 138, false );
+    // add_image_size( '288-height', 999, 288, false );	
+    // add_image_size( '238-height', 999, 238, false );
+    // add_image_size( '188-height', 999, 188, false );
+    // add_image_size( '138-height', 999, 138, false );
+    // add_image_size( '88-height', 999, 138, false );
 
-    function pw_show_image_sizes($sizes) {
-        $sizes['288-height'] = __( '288 height', 'pippin' );
-        $sizes['238-height'] = __( '238 heigh', 'pippin' );
-        $sizes['188-height'] = __( '188 heigh', 'pippin' );
-        $sizes['138-height'] = __( '138 heigh', 'pippin' );
-        $sizes['88-height'] = __( '88 heigh', 'pippin' );
+    // function pw_show_image_sizes($sizes) {
+    //     $sizes['288-height'] = __( '288 height', 'pippin' );
+    //     $sizes['238-height'] = __( '238 heigh', 'pippin' );
+    //     $sizes['188-height'] = __( '188 heigh', 'pippin' );
+    //     $sizes['138-height'] = __( '138 heigh', 'pippin' );
+    //     $sizes['88-height'] = __( '88 heigh', 'pippin' );
 
-        return $sizes;
-    }
-    add_filter('image_size_names_choose', 'pw_show_image_sizes');
+    //     return $sizes;
+    // }
+    // add_filter('image_size_names_choose', 'pw_show_image_sizes');
 
 /*
  * Enable Wordpress features
@@ -112,7 +112,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
     add_filter('image_send_to_editor','give_linked_images_class',10,8);    
 
 
-
+    // shortcodes //
     // Footnotes //     
     function footnotes( $atts ) {
         extract(shortcode_atts(array(
@@ -121,6 +121,13 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         return '<sup class="footnote_marker footnote-'.$fig.'">'.$fig.'</sup>';
     }
     add_shortcode( 'footnote', 'footnotes' );
+    // wrap for centered images //
+    function centerwrap_shortcode( $atts, $content = null) {
+        return '<div class="centerwrap">' . $content . '</div>';
+    }
+    add_shortcode( 'wrap', 'centerwrap_shortcode' );
+
+
 
     function load_about(){
         get_template_part('includes/about-content');
