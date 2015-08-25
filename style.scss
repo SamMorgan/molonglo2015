@@ -109,6 +109,9 @@ header {
 }
 .widget {
   right:3%;
+  font-size: 12px;
+  line-height: 1em;
+  font-family: Arial,sans-serif;
   &.about {
     width: 180px;
     border: 1px solid;
@@ -128,10 +131,10 @@ header {
 
 }
 
-/* liScroll styles (about widget) */
-
 .category_description {
   left:3%;
+  font-size: 16px;
+  line-height: 1.4em;
   @include fortescue;
 }
 .categorywrap {
@@ -431,6 +434,7 @@ footer {
     font-size: 16px;
     line-height: 1.3em;    
     font-family: Arial,sans-serif;
+    max-width: 600px;
   }  
 }
 .alignleft {
@@ -474,6 +478,7 @@ footer {
 
 .article_heading {
   margin: 0 0 3em;
+  font-family:Arial,sans-serif;
 }
 .footnote_marker {
   color:#fff;
