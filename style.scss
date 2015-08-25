@@ -551,10 +551,13 @@ footer {
 }  
 
 // About //
+#about-wrap {
+  display: none;
+}
 #typewriter {
   position: relative;
-  height: 0;
-  overflow: hidden;
+  //height: 0;
+  //overflow: hidden;
 }
 #type-string {
   opacity: 0;

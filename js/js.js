@@ -265,7 +265,10 @@ jQuery(document).ready(function($){
 		$typeAnimSlow = $('#type-anim-slow'),
 		$typeAnimFast = $('#type-anim-fast'),
 	    i = 0,
-	    isTag,typeTimer,newh,h,char;
+	    isTag,typeTimer,
+	    //newh,
+	    //h,
+	    char;
 	   
 
 
@@ -281,14 +284,14 @@ jQuery(document).ready(function($){
 				}											
 			    document.getElementById('type-anim-fast').innerHTML = text;
 
-			    var slowHeight = $typeAnimSlow.height();
-			    	newh = $typeAnimFast.height() + slowHeight;
-			    	h = 0;
-			    if(newh > h){
-			    	$('#typewriter').height(newh);
-			    	h = newh;
+			    //var slowHeight = $typeAnimSlow.height();
+			    	//newh = $typeAnimFast.height() + slowHeight;
+			    	//h = 0;
+			    // if(newh > h){
+			    // 	$('#typewriter').height(newh);
+			    // 	h = newh;
 			
-			    }					    
+			    // }					    
 				char = text.slice(-1);
 				if( char === '<' ){ isTag = true; }
 				if( char === '>' ){ isTag = false; }
@@ -301,12 +304,12 @@ jQuery(document).ready(function($){
 						
 	    document.getElementById('type-anim-slow').innerHTML = text;
 	    			    
-	    newh = $typeAnimSlow.height();
-	    h = 0;
-	    if(newh > h){
-	    	$('#typewriter').height(newh);
-	    	h = newh;			
-	    }
+	    // newh = $typeAnimSlow.height();
+	    // h = 0;
+	    // if(newh > h){
+	    // 	$('#typewriter').height(newh);
+	    // 	h = newh;			
+	    // }
 	    
 		char = text.slice(-1);
 		if( char === '<' ){ isTag = true; }
@@ -324,7 +327,10 @@ jQuery(document).ready(function($){
 		$typeAnimFast = $('#type-anim-fast');
 		i = 0;
 		isTag = 0;
-		typeTimer = 0;newh = 0;h = 0;char = 0;
+		typeTimer = 0;
+		//newh = 0;
+		//h = 0;
+		char = 0;
 
         type();		
 	}
@@ -368,11 +374,43 @@ jQuery(document).ready(function($){
 		    });
 		}
 	}
-	$(document).on('click','.about_link',function(){
-		loadAbout();				
+	// $(document).on('click','.about_link',function(){
+	// 	//loadAbout();
+	// 	$('#about-wrap').slideDown(function() {
+	// 		runTypewriter();
+	// 	});				
+	// 	return false;
+	// });
+
+	$('.about_link').click(function(){
+		var $category = $(this).closest('.categorywrap'),
+			$targetElem = $('#about-wrap'),
+			$categoryOpen = $('.categorywrap.open'),
+			hash = $(this).attr('href');
+
+		//$category.toggleClass('open');	
+		//$targetElem.slideToggle();
+
+		if($targetElem.is(':visible')){			
+			$targetElem.slideUp(function(){
+				$category.removeClass('open');
+			});
+			window.location.hash = '';
+		}else{
+			if($categoryOpen.length){				
+				$categoryOpen.find('.category_posts').slideUp(function(){
+					$categoryOpen.removeClass('open');
+				});			
+			}
+			$category.addClass('open');
+			$targetElem.slideDown(function(){
+				runTypewriter();
+			});						
+			window.location.hash = hash;			
+		}
+		$('#back').attr('href',window.location);
 		return false;
 	});
-
 
 
  	// get Times New Roman text from wiki //
