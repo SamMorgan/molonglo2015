@@ -64,7 +64,7 @@ jQuery(document).ready(function($){
 	
 	$(document).on('click','.footnote_marker',function(){
 		if($(this).hasClass('footnote_open')){
-			$('.article_body .footnote').remove();
+			$('.article_contents .footnote').remove();
 			$(this).removeClass('footnote_open');	
 		}else{				
 	    	var fig = $(this).text();

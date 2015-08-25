@@ -114,11 +114,11 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
 
     // shortcodes //
     // Footnotes //     
-    function footnotes( $atts ) {
+    function footnotes( $atts, $content = null) {
         extract(shortcode_atts(array(
           "fig" => 1,
         ), $atts));     
-        return '<sup class="footnote_marker footnote-'.$fig.'">'.$fig.'</sup>';
+        return '<span class="footnote_wrap">' . $content . '<sup class="footnote_marker footnote-'.$fig.'">'.$fig.'</sup></span>';
     }
     add_shortcode( 'footnote', 'footnotes' );
     // wrap for centered images //

@@ -10,7 +10,9 @@
 			}?>
 		</div>
 
-	    <?php the_content();?>
+		<div class="article_contents">
+	    	<?php the_content();?>
+	    </div>
 
 	</section>
 	
@@ -19,9 +21,7 @@
 
 		    <?php $i = 1;
 			while ( have_rows('footnotes') ) : the_row();
-			    echo '<div id="footnote-'.$i.'" class="footnote">
-			    	  <span class="footnote_marker">'.$i.'</span>
-			    	  <div>'.get_sub_field('footnote').'</div></div>';
+			    echo '<div id="footnote-'.$i.'" class="footnote">'.get_sub_field('footnote').'</div>';
 			    $i++;
 			endwhile;?>
 

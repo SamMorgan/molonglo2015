@@ -188,6 +188,9 @@ header {
     .category_posts {
       max-width: 1080px;
       margin: 0 auto;
+      ul {
+        text-align: left;
+      }
     }  
     li {
       margin: 0 2px 4px;
@@ -203,8 +206,25 @@ header {
       @include fortescue;
       text-decoration: none;
     }
+    .category_posts {
+      max-width: 1290px;
+      margin:0 auto;
+    }
+    li {
+      width: 15%;
+      margin: 0 10% 5% 0;
+      // &:nth-child(4n+4){
+      //   margin: 0 0 5%;
+      // }
+      a {
+        display: block;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }  
   }
-  &.new,
   &.roman {
     li {
       max-width: 20%;
@@ -429,13 +449,7 @@ footer {
   .popup_img.line_height_5 img {
     height: 5em;
     width: auto;
-  }  
-  .footnote {
-    font-size: 16px;
-    line-height: 1.3em;    
-    font-family: Arial,sans-serif;
-    max-width: 600px;
-  }  
+  }    
 }
 .alignleft {
   float: left;
@@ -463,6 +477,20 @@ footer {
   float: none;
   min-height: auto !important;
 }
+.article_contents {
+  @include fortescue;
+  p {
+    margin-bottom: 0 
+  }
+  p + p {
+    text-indent: 2em;
+    margin-top: 0 
+  }  
+}
+
+.footnote_wrap {
+  white-space: nowrap;
+}
 .footnote_marker {
   top:0;
 }  
@@ -477,7 +505,7 @@ footer {
 }
 
 .article_heading {
-  margin: 0 0 3em;
+  margin: 0 0 2em;
   font-family:Arial,sans-serif;
 }
 .footnote_marker {
@@ -487,7 +515,8 @@ footer {
   padding: 0 3px;
   position: relative;
   top:-1em;
-  cursor: pointer;  
+  cursor: pointer;
+  margin: 0 0 0 0.3em;   
 }
 .footnote {
   //position:absolute;
@@ -505,7 +534,14 @@ footer {
 }
 .article_body .footnote {
   display: block;
-  padding: 0.5em 0 1em 2em; 
+  margin: 0.6em auto;
+  border: 1px solid #000;
+  padding: 1.6em;
+  font-size: 16px;
+  line-height: 1.3em;    
+  font-family: Arial,sans-serif;
+  max-width: 600px; 
+  white-space: normal;
   .footnote_marker {
     display: none;
   }
