@@ -394,6 +394,8 @@ jQuery(document).ready(function($){
 		if($targetElem.is(':visible')){			
 			$targetElem.slideUp(function(){
 				$category.removeClass('open');
+				clearTimeout(typeTimer);
+				$('#type-anim-slow,#type-anim-fast').empty();
 			});
 			window.location.hash = '';
 		}else{

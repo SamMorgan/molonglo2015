@@ -419,12 +419,16 @@ footer {
 //   }
 // }
 // Article //
+.article#about-contents {
+  margin: 1em 3%;
+}
 .article {
   font-size: 33px;
   line-height: 50px;
   overflow: hidden;
   margin: 140px 3% 0;
   position:relative;
+
   nav {
     position:fixed;
     top:34px;
