@@ -225,6 +225,8 @@ jQuery(document).ready(function($){
 			
 		if(hash.length){
 			openActiveNavItem(hash);
+		}else{
+			$('.categorywrap.open').removeClass('open').find('.category_posts').hide();
 		}
 
 		$('body').removeClass('single').addClass('home');							
@@ -331,7 +333,8 @@ jQuery(document).ready(function($){
 		var href = $this.attr('href');
 
 		$('.breadcrumbs a').removeClass('active');
-		$('.breadcrumbs a.about').addClass('active');	
+		$('.breadcrumbs a.about').addClass('active');
+		$('#back').attr('href',$('#logo').attr('href'));	
 
 		if($('.article#about-contents').length){
 		    $('body').removeClass('home').addClass('single');
