@@ -9,6 +9,13 @@ jQuery(document).ready(function($){
 
 
 	// clock //
+	function setSeconds(){
+		var seconds = new Date().getSeconds();
+		var sdegree = seconds * 6;
+		var srotate = "rotate(" + sdegree + "deg)";
+
+		$('.sec').css({ "transform": srotate });
+	}	
 	function setMinutes(){
 		var mins = new Date().getMinutes();
 		var mdegree = mins * 6;
@@ -24,14 +31,14 @@ jQuery(document).ready(function($){
 
 		$('.hour').css({ "transform": hrotate});
 	}	
-	//setSeconds();
+	setSeconds();
 	setMinutes();
 	setHours();
 
 
 	// clock function //
 	setInterval( function() {
-		//setSeconds();
+		setSeconds();
 		setMinutes();
 		setHours();	  
 	}, 1000 );
