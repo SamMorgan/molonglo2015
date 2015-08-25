@@ -207,12 +207,12 @@ header {
       text-decoration: none;
     }
     .category_posts {
-      max-width: 1290px;
-      margin:0 auto;
+      //max-width: 1290px;
+      //margin:0 auto;
     }
     li {
-      width: 15%;
-      margin: 0 10% 5% 0;
+      width: 10%;
+      margin: 0 5% 5%;
       // &:nth-child(4n+4){
       //   margin: 0 0 5%;
       // }
@@ -413,15 +413,11 @@ footer {
 // }
 // Article //
 .article {
-  font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif; 
   font-size: 33px;
   line-height: 50px;
   overflow: hidden;
-  margin: 90px 3% 0;
+  margin: 140px 3% 0;
   position:relative;
-  p {
-    margin: 0 0 1.6em;
-  }
   nav {
     position:fixed;
     top:34px;
@@ -603,10 +599,17 @@ footer {
     width: 30%;
   }   
 }
+@media screen and (max-width: 1080px) {
+  .categorywrap.new li {
+    width: 15%;
+    margin: 0 5% 5%;
+  }
+}
 @media screen and (max-width: 900px) {
   .article {
     font-size: 21px;
     line-height: 32px;
+    margin: 122px 3% 0;
     .popup_img img {
       height: 96px;
       width: auto;
@@ -673,6 +676,7 @@ footer {
   .article {
     font-size: 18px;
     line-height: 26px;
+    margin: 116px 3% 0;
     .popup_img img {
       height: 78px;
       width: auto;
