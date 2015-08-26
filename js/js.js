@@ -260,15 +260,18 @@ jQuery(document).ready(function($){
 	    $(this).attr("rel", i+1);
 	});
 	
-	$('#about-contents .image_wrapper img').hover(function(){	
-		var rel = $(this).attr('rel');
-	    $('#caption-text').html($(this).data('caption'));
-		$('#number').html(rel);
-		$('#caption').show();
+	$('#about-contents .image_wrapper img').mouseenter(function(){	
+		var rel = $(this).attr('rel'),
+			cap = $(this).data('caption');
+
+		$('body').append('<div id="caption"><span class="number">'+rel+'</span><span class="caption-text">'+cap+'</span></div>');	
+	    //$('#caption-text').html($(this).data('caption'));
+		//$('#number').html(rel);
+		//$('#caption').show();
 	});
 
-	$('#about-contents img').mouseout(function(){
-	    $('#caption').hide();	
+	$('#about-contents .image_wrapper img').mouseout(function(){
+	    $('#caption').remove();	
 	});
 		
 	$('#about-contents .image_wrapper_background').click(function() {

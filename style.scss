@@ -622,19 +622,18 @@ footer {
     line-height: 1.3em;
     z-index: 999;
     @include fortescue;
+    span {
+      height: 46px;
+      display: block;
+      float: left;      
+    }
 }
-#caption-text {
+.caption-text {
     width: 440px;
     height: 46px;  
 }
-#number {
+.number {
   width: 60px;
-}
-#caption-text,
-#number {
-  height: 46px;
-  display: block;
-  float: left;
 }
 
 #typewriter {
