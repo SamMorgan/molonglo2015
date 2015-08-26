@@ -10,6 +10,14 @@
 		<div id="type-anim"><div id="type-anim-slow"></div><div id="type-anim-fast"></div></div>
 	</div>
 
+	<div id="now" class="image_wrapper">
+		<div id="clock" class="drag">
+			
+		</div>
+		
+		<div class="image_wrapper_background">
+		</div>
+	</div>
 
 	<?php $theme_dir = get_template_directory_uri();?>
 <!-- images_landscapes -->
