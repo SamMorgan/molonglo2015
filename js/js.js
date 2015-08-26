@@ -122,7 +122,7 @@ jQuery(document).ready(function($){
 			footerPadding = $('footer').height() - $('header').height(),
 			mainNavPadding = ($win.height() - mainNavH - footerPadding)/2;
 		if(mainNavPadding > 90){	
-			mainNav.css('padding-top',mainNavPadding+"px").show();
+			mainNav.css('padding-top',mainNavPadding+"px").addClass('ready');
 		}else{
 			mainNav.show();
 		}

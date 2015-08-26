@@ -358,7 +358,7 @@ header {
   width: 50%;
   height: 100%;
   position: absolute;
-  overflow: auto;
+  overflow-y: scroll;
   &.articlewrap {
     //margin: 0 0 0 50%;
     right:0; 
@@ -392,6 +392,15 @@ footer {
 .main_nav {
   display: none;
   padding: 90px 0;
+  &.ready {
+    display: block;
+  }
+}
+.wf-loading {
+  .main_nav,
+  .main_nav.ready {
+    display: none;
+  }
 }
 // .roman .category_posts ul li {
 //   width: 20%;
@@ -427,7 +436,7 @@ footer {
 // }
 // Article //
 .article#about-contents {
-  padding: 1em 0 0;
+  padding: 1em 0 2em;
 }
 .article {
   font-size: 33px;
@@ -577,7 +586,12 @@ footer {
 #type-string {
   opacity: 0;
   position: relative;
-
+}
+#type-string p + p,
+#type-string .fast p:first-child,
+#type-anim-fast p:first-child,
+#type-anim-fast p + p {
+  text-indent:2em;
 }
 #type-anim {
   position: absolute;
@@ -664,7 +678,10 @@ div#clock {
   position: relative;
   width: 90%;
   max-width:1300px;
-  margin: 0 auto;  
+  margin: 0 auto;
+  a {
+    text-indent: 0;
+  }  
   a:after {
     display: inline-block;
     font-size: 70%;
