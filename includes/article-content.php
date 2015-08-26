@@ -8,6 +8,25 @@
 			if($sub_heading){
 				echo '<h2>'.$sub_heading.'</h2>';
 			}?>
+			<?php 
+				$categories = get_the_category();
+
+			    foreach( $categories as $category ) {
+			        switch($category->category_nicename){
+			        	case "times":
+			        	get_template_part('includes/widget-times');
+			        	break;
+
+			        	case "new":
+			        	get_template_part('includes/widget-new');
+			        	break;
+
+			        	case "roman":
+			        	get_template_part('includes/widget-roman');
+			        	break;	        		        	
+			        } 
+			    }		
+			?>			
 		</div>
 
 		<div class="article_contents">
@@ -26,24 +45,5 @@
 			endwhile;?>
 
 	    </section>
-	<?php endif;?>
-	<?php 
-		$categories = get_the_category();
-
-	    foreach( $categories as $category ) {
-	        switch($category->category_nicename){
-	        	case "times":
-	        	get_template_part('includes/widget-times');
-	        	break;
-
-	        	case "new":
-	        	get_template_part('includes/widget-new');
-	        	break;
-
-	        	case "roman":
-	        	get_template_part('includes/widget-roman');
-	        	break;	        		        	
-	        } 
-	    }		
-	?>	
+	<?php endif;?>	
 </article>

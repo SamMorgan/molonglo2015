@@ -429,7 +429,7 @@ jQuery(document).ready(function($){
 		}
 	});
 
-	if($('body').hasClass('page-id-86')){
+	if($('body').hasClass('about')){
 		$win.load(function(){
 			openAbout();
 			runTypewriter();

@@ -80,6 +80,10 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
                 $classes[] = 'is_mobile';                
                 break;
 
+            case is_page('about') :
+                $classes[] = 'about';                
+                break;
+
             default :
                 $classes[] = 'not_mobile';                            
                 break;

@@ -420,43 +420,46 @@ footer {
 // }
 // Article //
 .article#about-contents {
-  margin: 1em 3%;
+  padding: 1em 0 0;
 }
 .article {
   font-size: 33px;
   line-height: 50px;
   overflow: hidden;
-  margin: 140px 3% 0;
+  padding: 140px 0 0;
+  margin: 0 auto;
   position:relative;
-
+  max-width:1300px;
   nav {
     position:fixed;
     top:34px;
     height:21px;
   }
-  .popup_img img {
-    display: block;
-  }
-  .popup_img.line_height_1 img {
-    height: 1em;
-    width: auto;
-  }
-  .popup_img.line_height_2 img {
-    height: 2em;
-    width: auto;
-  }
-  .popup_img.line_height_3 img {
-    height: 3em;
-    width: auto;
-  }
-  .popup_img.line_height_4 img {
-    height: 4em;
-    width: auto;
-  }
-  .popup_img.line_height_5 img {
-    height: 5em;
-    width: auto;
-  }    
+  .popup_img { 
+    img {
+      display: inline-block;
+    }
+    &.line_height_1 img {
+      height: 1em;
+      width: auto;
+    }
+    &.line_height_2 img {
+      height: 2em;
+      width: auto;
+    }
+    &.line_height_3 img {
+      height: 3em;
+      width: auto;
+    }
+    &.line_height_4 img {
+      height: 4em;
+      width: auto;
+    }
+    &.line_height_5 img {
+      height: 5em;
+      width: auto;
+    }
+  }      
 }
 .alignleft {
   float: left;
@@ -469,6 +472,10 @@ footer {
 .aligncenter {
   margin: 0 auto;
   display: block;
+}
+.alignnone {
+  display: inline-block;
+  margin: 0 0 0 0.2em;
 }
 .centerwrap {
   display: block;
@@ -512,6 +519,7 @@ footer {
 }
 
 .article_heading {
+  position:relative;
   margin: 0 0 2em;
   font-family:Arial,sans-serif;
 }
@@ -604,9 +612,9 @@ footer {
 }
 #caption {
     position: fixed;
-    left: 4.7%;
+    left: 3%;
     bottom: 20px;
-    font-size: 23px;
+    font-size: 16px;
     transform: rotate(-90deg);
     transform-origin: left;
     width: 500px;
@@ -744,7 +752,7 @@ footer {
   .article {
     font-size: 21px;
     line-height: 32px;
-    margin: 122px 3% 0;
+    padding:122px 0 0;
     .popup_img img {
       height: 96px;
       width: auto;
@@ -813,7 +821,7 @@ footer {
   .article {
     font-size: 18px;
     line-height: 26px;
-    margin: 116px 3% 0;
+    padding: 116px 0 0;
     .popup_img img {
       height: 78px;
       width: auto;
