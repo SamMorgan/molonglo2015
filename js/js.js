@@ -312,6 +312,7 @@ jQuery(document).ready(function($){
 			if($categoryOpen.length){
 				if($categoryOpen.attr('id') === 'about'){
 					closeAbout();
+					window.history.pushState({path:homeURL},'',homeURL);
 				}else{				
 					$categoryOpen.find('.category_posts').slideUp(function(){
 						$categoryOpen.removeClass('open');
