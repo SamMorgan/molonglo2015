@@ -114,8 +114,6 @@ header {
   font-family: Arial,sans-serif;
   &.about {
     width: 180px;
-    border: 1px solid;
-    padding:2px 2px 4px;
     height: 1em;
     overflow: hidden;
     .times_ticker {
@@ -127,8 +125,23 @@ header {
         white-space: nowrap;
       }
     }
-  } 
-
+  }
+  &.roman,
+  &.about {
+    border:1px solid;
+    padding:2px;
+    top:36px;   
+  }
+  &.new {
+    top:17px;
+    text-align: center;
+    span {
+      display: block;
+      font-size: 10px;
+      margin: 0.5em 0 0;
+      text-transform: uppercase;
+    } 
+  }
 }
 
 .category_description {
@@ -289,15 +302,6 @@ header {
     top:0;
     left:0;
     fill:#000;
-  }
-}
-.widget.new {
-  text-align: center;
-  span {
-    display: block;
-    font-size: 10px;
-    margin: 0.5em 0 0;
-    text-transform: uppercase;
   }
 }
 .moon {
@@ -863,7 +867,7 @@ footer {
   .widget.about {
     top:-25px;
     left:50%;
-    margin: 0 0 0 -90px;
+    margin: 0 0 0 -92px;
   }
   #number {
     display: none !important;

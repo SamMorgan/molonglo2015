@@ -5,6 +5,6 @@
 		$m = date('n');
 		$y = date('Y');
 
-		echo romanNumerals($d) . '<br>' . romanNumerals($m) . '<br>' . romanNumerals($y);
+		echo romanNumerals($d) . '. ' . romanNumerals($m) . '. ' . romanNumerals($y);
 	?>	
 </div>
