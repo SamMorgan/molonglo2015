@@ -560,8 +560,9 @@ footer {
 }
 #typewriter {
   position: relative;
-  //height: 0;
-  //overflow: hidden;
+  width: 90%;
+  max-width:1300px;
+  margin: 0 auto;
 }
 #type-string {
   opacity: 0;
@@ -610,7 +611,7 @@ footer {
 #caption {
     position: fixed;
     left: 4.7%;
-    bottom: 190px;
+    bottom: 70px;
     font-family: times;
     font-size: 23px;
     transform: rotate(-90deg);
@@ -623,7 +624,7 @@ footer {
 #number {
     position: fixed;
     left: 4.7%;
-    bottom: 120px;
+    bottom: 20px;
     font-family: times;
     font-size: 23px;
     transform: rotate(-90deg);

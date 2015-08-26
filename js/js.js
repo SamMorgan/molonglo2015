@@ -245,6 +245,14 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+	$('.drag').draggable({		  
+		stop: function() {			
+			$(this).css("left",parseInt($(this).css("left")) / ($(window).width() / 100)+"%");
+			$(this).css("top",parseInt($(this).css("top")) / ($(window).height() / 100)+"%");
+
+		}
+	});
+
 	$("#about-contents .image_wrapper img").each(function(i) {	   
 	    $(this).attr("rel", i+1);
 	});
