@@ -35,10 +35,11 @@
 							while ( $times_query->have_posts() ) {
 								$times_query->the_post(); 
 									echo '<li>';
-									
 									if ( has_post_thumbnail() ) { 
-										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" class="post_link">';
+										echo '<a href="'.get_permalink().'" data-id="'.$post->ID.'" data-caption="'.get_the_title().'" class="post_link has_caption">';
 										the_post_thumbnail('medium');
+										//$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+										//echo '<img src="'.$image[0].'" >';
 										echo '</a>';									
 									} 								
 									echo '</li>';

@@ -195,6 +195,9 @@ header {
     }  
     li {
       margin: 0 2px 4px;
+      a {
+        display: block;
+      }
       img {
         height: 180px;
         width: auto;
