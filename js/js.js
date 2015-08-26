@@ -309,10 +309,14 @@ jQuery(document).ready(function($){
 			});
 			window.location.hash = '';
 		}else{
-			if($categoryOpen.length){				
-				$categoryOpen.find('.category_posts').slideUp(function(){
-					$categoryOpen.removeClass('open');
-				});			
+			if($categoryOpen.length){
+				if($categoryOpen.attr('id') === 'about'){
+					closeAbout();
+				}else{				
+					$categoryOpen.find('.category_posts').slideUp(function(){
+						$categoryOpen.removeClass('open');
+					});	
+				}			
 			}
 			$category.addClass('open');
 			$targetElem.slideDown();						
