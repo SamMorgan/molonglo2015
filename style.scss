@@ -558,12 +558,6 @@ footer {
 #about-wrap {
   display: none;
 }
-#typewriter {
-  position: relative;
-  width: 90%;
-  max-width:1300px;
-  margin: 0 auto;
-}
 #type-string {
   opacity: 0;
   position: relative;
@@ -634,6 +628,68 @@ footer {
     z-index: 999;
 }
 
+#typewriter {
+  position: relative;
+  width: 90%;
+  max-width:1300px;
+  margin: 0 auto;  
+  a:after {
+    display: inline-block;
+    font-size: 70%;
+    font-family: 'Times New Roman', serif;
+    position: relative;
+    top: -13px; 
+  } 
+  a[href="#landscapes"]:after {
+    content:'1-3';
+
+  }
+
+  a[href="#images1964"]:after {
+    content:'4-5';
+
+  }
+
+  a[href="#hotels"]:after {
+    content:'6-7';
+
+  }
+
+  a[href="#furniture"]:after {
+    content:'8-9';
+
+  }
+
+  a[href="#disjunction"]:after {
+    content:'10-11';
+
+  }
+
+  a[href="#reflects"]:after {
+    content:'12-13';
+
+  }
+
+  a[href="#messy"]:after {
+    content:'14-16';
+
+  }
+
+  a[href="#home"]:after {
+    content:'17-20';
+
+  }
+
+  a[href="#diverse"]:after {
+    content:'21-23';
+
+  }
+
+  a[href="#now"]:after {
+    content:'※';
+
+  }
+}  
 //footer //
 footer {
   a {

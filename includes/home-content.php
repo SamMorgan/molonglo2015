@@ -1,7 +1,7 @@
 			<nav class="main_nav">
 			<section class="categorywrap about" id="about">
 				<?php $about_page = get_page_by_path( 'about' );?>
-				<h2><a href="#about" class="about_link">About</a></h2>
+				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>
 				<?php
 					$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($about_page->ID), 'full' );
 					if($rollover_img){
