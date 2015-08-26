@@ -1,9 +1,18 @@
 			<nav class="main_nav">
 			<section class="categorywrap about" id="about">
 				<?php $about_page = get_page_by_path( 'about' );?>
-				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>
+				<h2><a href="#about" class="about_link">About</a></h2>
+				<?php
+					$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($about_page->ID), 'full' );
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
+					}					
+				?>				
 				<div class="widget about"><div class="times_ticker"></div></div>
-				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>				
+				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>
+				<div id="about-wrap">
+					<?php get_template_part('includes/about-content');?>
+				</div>				
 			</section>
 			<section class="categorywrap times" id="times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
@@ -114,10 +123,4 @@
 					?>					
 				</div>				
 			</section>
-		</nav>
-		<?php
-			$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($about_page->ID), 'full' );
-			if($rollover_img){
-				echo '<div class="bg_rollover about_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
-			}					
-		?>		
+		</nav>		

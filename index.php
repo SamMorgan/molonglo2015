@@ -11,7 +11,7 @@
 
         <div class="sectionwrap articlewrap">
             <div class="contentwrap" id="article-container">
-                <?php get_template_part('includes/about-content');?>
+                
             </div>
             <?php get_template_part('includes/footer-content');?>
         </div>
