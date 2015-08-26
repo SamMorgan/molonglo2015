@@ -261,16 +261,16 @@ jQuery(document).ready(function($){
 	});
 		
 	$('#about-contents .image_wrapper_background').click(function() {
-		$('.image_wrapper').hide();
-		$('.image_wrapper .image').show();
+		$('#about-contents .image_wrapper').hide();
+		$('#about-contents .image_wrapper .image').show();
 	});
 		
 	$('#about-contents .image').click(function() {
 		$(this).hide();				
 
-	  	if($(".image img:visible").length === 0){
-		  $('.image_wrapper').hide();
-		  $('.image_wrapper .image').show();
+	  	if($('#about-contents .image img:visible').length === 0){
+		  $('#about-contents .image_wrapper').hide();
+		  $('#about-contents .image_wrapper .image').show();
 		}					
 	});
 
