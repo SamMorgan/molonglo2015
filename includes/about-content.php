@@ -9,5 +9,269 @@
 		</div></div>
 		<div id="type-anim"><div id="type-anim-slow"></div><div id="type-anim-fast"></div></div>
 	</div>
+
+	<?php $theme_dir = get_stylesheet_directory();?>
+<!-- images_landscapes -->
+
+	<div id="landscapes" class="image_wrapper">
+	
+		<div class="image drag Landscape Large" style="left:24%; top:14%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/landscape11.jpg"  alt="" data-caption='Better than any building ever made... pity humans can&#39;t live under rocks' />
+			<span class="details"></span>
+			
+		</div>
+	
+		<div class="image drag Landscape Medium" style="left:32%; top:22%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/Landscape31.jpg"  alt="" data-caption='Black and white tree trunks in Aoyama, Tokyo ' />
+			<span class="details"></span>
+			
+		</div>
+	
+		<div class="image drag Landscape Small" style="left:36%; top:25%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/landscape21.jpg"  alt="" data-caption='Hard-rubbish and living outside at NewActon East, Canberra' />
+			<span class="details"></span>
+			
+		</div>
+
+		<div class="image_wrapper_background"></div>	
+	</div>
+
+
+
+
+
+<!-- images_1964 -->
+
+	<div id="images1964" class="image_wrapper">
+	
+		<div class="image drag Portrait Small" style="left:9.5%; top:11.8%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/1964_2.jpg"  alt="" data-caption='Grandpa' />
+			<span class="details"></span>
+			
+		</div>
+
+	
+		<div class="image drag Landscape Medium" style="left:52%; top:40%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/Goldfinger.jpg"  alt="" data-caption='Goldfinger. Guy Hamilton, 1964. Film' />
+			<span class="details"></span>
+			
+		</div>
+
+		<div class="image_wrapper_background"></div>	
+	
+	</div>
+
+
+
+<!-- images_hotels -->
+
+	<div id="hotels" class="image_wrapper">
+	
+		<div class="image drag Portrait Large" style="left:13%; top:100px;">
+			
+			<img src="<?php echo $theme_dir;?>/images/hotel11.jpg"  alt="" data-caption='Profile of the pineapple home of Hotel Hotel' />
+			<span class="details"></span>
+			
+		</div>
+
+	
+		<div class="image drag Portrait Large" style="left:54%; top:100px;">
+			
+			<img src="<?php echo $theme_dir;?>/images/hotel21.jpg"  alt="" data-caption='Gradma and her favourite colours' />
+			<span class="details"></span>
+			
+		</div>
+
+		<div class="image_wrapper_background"></div>	
+	</div>
+
+
+
+
+
+
+<!-- images_furniture -->
+
+	<div id="furniture" class="image_wrapper">
+	
+		<div class="image drag Landscape Large" style="left:0px; top:6.7%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/furniture11.jpg"  alt="" data-caption='Has anyone seen my porcupine?' />
+			<span class="details"></span>
+			
+		</div>
+
+	
+		<div class="image drag Portrait Large" style="left:67%; top:32%;">
+			
+			<img src="<?php echo $theme_dir;?>/images/home12.jpg"  alt="" data-caption='We are sitting there... you just can&#39;t see us' />
+			<span class="details"></span>
+			
+		</div>
+
+		<div class="image_wrapper_background"></div>	
+	</div>
+
+	
+	
+	
+	<!-- images_disjunction -->
+	
+		<div id="disjunction" class="image_wrapper">
+		
+			<div class="image drag Landscape Large" style="left:44%; top:9.6%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/Untitled-11.jpg"  alt="" data-caption='Hmmm... an industrial pagan christmas tree' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Small" style="left:10%; top:54%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/Untitled-22.jpg"  alt="" data-caption='Basil, which way to my room?' />
+				<span class="details"></span>
+				
+			</div>
+
+			<div class="image_wrapper_background"></div>	
+		</div>
+
+		
+	
+	<!-- images_reflect -->	
+	
+		<div id="reflects" class="image_wrapper">
+		
+			<div class="image drag Landscape Large" style="left:51%; top:7.5%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/reflect1.jpg"  alt="" data-caption='Who&#39;s that?' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Medium" style="left:9.3%; top:56%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/telephone_soccer1.jpg"  alt="" data-caption='Call and we&#39;ll explain what we mean' />
+				<span class="details"></span>
+				
+			</div>
+
+			<div class="image_wrapper_background"></div>	
+		</div>
+
+		
+	
+	
+	
+	
+	<!-- images_messy -->
+		
+		<div id="messy" class="image_wrapper">
+		
+			<div class="image drag Portrait Medium" style="left:6%; top:9%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/messy1.jpg"  alt="" data-caption='Shhhhh... ' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Large" style="left:48%; top:37%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/messy21.jpg"  alt="" data-caption='Are they my undies' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Portrait Small" style="left:80%; top:12%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/New_messy1.jpg"  alt="" data-caption='My iphone charger' />
+				<span class="details"></span>
+				
+			</div>
+
+			<div class="image_wrapper_background"></div>	
+		</div>
+
+		
+	
+	<!-- images_home -->	
+	
+		<div id="home" class="image_wrapper">
+		
+			<div class="image drag Landscape Small" style="left:28%; top:59%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/greekfood.jpg"  alt="" data-caption='Our home... has food waiting for us' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Medium" style="left:64%; top:55%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/home2.jpg"  alt="" data-caption='Yes, we live there' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Medium" style="left:6.6%; top:15.3%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/home3.jpg"  alt="" data-caption='More food' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Portrait Small" style="left:61%; top:9.2%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/Untitled-21.jpg"  alt="" data-caption="'And sometimes we live in this man's head'" />
+				<span class="details"></span>
+				
+			</div>
+
+			<div class="image_wrapper_background"></div>	
+		</div>
+
+		
+	
+	
+	<!-- images_diverse -->
+		
+		<div id="diverse" class="image_wrapper">
+		
+			<div class="image drag Landscape Large" style="left:46%; top:42%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/diverse22.jpg"  alt="" data-caption='Gentle with style' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Medium" style="left:7%; top:26%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/New_diverse1.jpg"  alt="" data-caption='Our range is extensive... drop in for tea' />
+				<span class="details"></span>
+				
+			</div>
+
+		
+			<div class="image drag Landscape Small" style="left:59%; top:10%;">
+				
+				<img src="<?php echo $theme_dir;?>/images/New_diverse21.jpg"  alt="" data-caption='Peel away to reveal the multiplicity of life' />
+				<span class="details"></span>
+				
+			</div>
+
+			<div class="image_wrapper_background"></div>	
+		</div>
 	
 </article>
