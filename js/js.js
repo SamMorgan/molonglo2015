@@ -223,6 +223,7 @@ jQuery(document).ready(function($){
 			clearTimeout(typeTimer);
 			$('#type-anim-slow,#type-anim-fast').empty();
 		});
+		window.history.pushState({path:homeURL},'',homeURL);
 	}
 
 	$('.about_link').click(function(){
@@ -234,7 +235,6 @@ jQuery(document).ready(function($){
 
 		if($('#about-wrap').is(':visible')){			
 			closeAbout();
-			window.history.pushState({path:homeURL},'',homeURL);
 		}else{
 			if($categoryOpen.length){				
 				$categoryOpen.find('.category_posts').slideUp(function(){
@@ -312,7 +312,6 @@ jQuery(document).ready(function($){
 			if($categoryOpen.length){
 				if($categoryOpen.attr('id') === 'about'){
 					closeAbout();
-					window.history.pushState({path:homeURL},'',homeURL);
 				}else{				
 					$categoryOpen.find('.category_posts').slideUp(function(){
 						$categoryOpen.removeClass('open');
@@ -426,7 +425,6 @@ jQuery(document).ready(function($){
 				if($('#about-wrap').is(':visible')){			
 					closeAbout();
 				}											
-				window.history.pushState({path:e.originalEvent.state.path},'',e.originalEvent.state.path);
 				return false;				
 			}else if(e.originalEvent.state.path === homeURL+'/about' || e.originalEvent.state.path === homeURL+'/about/'){
 				openAbout();	
