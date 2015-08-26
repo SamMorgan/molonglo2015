@@ -246,7 +246,7 @@ jQuery(document).ready(function($){
 	});
 
 	$("#about-contents .image_wrapper img").each(function(i) {	   
-	        $(this).attr("rel", i+1);
+	    $(this).attr("rel", i+1);
 	});
 	
 	$('#about-contents .image_wrapper img').hover(function(){	
@@ -273,7 +273,12 @@ jQuery(document).ready(function($){
 		  $('#about-contents .image_wrapper .image').show();
 		}					
 	});
-
+	
+	$('#typewriter a').click(function() {
+	    var elem = $(this).attr('href');
+	    $(elem).show();
+	    return false; 
+	});
 	// Main nav //
 	$('.category_toggle').click(function(){
 		var $category = $(this).closest('.categorywrap'),
