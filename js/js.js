@@ -174,7 +174,7 @@ jQuery(document).ready(function($){
 				if( char === '>' ){ isTag = false; }
 				
 				if (isTag){ return type(); }			   
-				typeTimer = setTimeout(type,2);					
+				typeTimer = setTimeout(type,5);					
 				
 			return;
 		}	

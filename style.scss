@@ -201,9 +201,10 @@ header {
     .category_posts {
       max-width: 1080px;
       margin: 0 auto;
+      width: 84%;
       ul {
         text-align: left;
-        padding: 1em 0;
+        padding: 1em 1px;
       }
     }  
     li {
