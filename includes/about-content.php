@@ -9,8 +9,9 @@
 		</div></div>
 		<div id="type-anim"><div id="type-anim-slow"></div><div id="type-anim-fast"></div></div>
 	</div>
-	<span id="number"></span>
-	<span id="caption"></span>
+	<div id="caption">
+		<span id="number"></span><span id="caption-text"></span>
+	</div>
 
 	<?php $theme_dir = get_template_directory_uri();?>
 <!-- images_landscapes -->

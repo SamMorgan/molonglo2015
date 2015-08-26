@@ -605,27 +605,28 @@ footer {
 #caption {
     position: fixed;
     left: 4.7%;
-    bottom: 70px;
-    font-family: times;
+    bottom: 20px;
     font-size: 23px;
     transform: rotate(-90deg);
     transform-origin: left;
-    width: 440px;
+    width: 500px;
     height: 46px;
     line-height: 1.3em;
     z-index: 999;
+    @include fortescue;
+}
+#caption-text {
+    width: 440px;
+    height: 46px;  
 }
 #number {
-    position: fixed;
-    left: 4.7%;
-    bottom: 20px;
-    font-family: times;
-    font-size: 23px;
-    transform: rotate(-90deg);
-    transform-origin: left;
-    height: 46px;
-    line-height: 1.3em;
-    z-index: 999;
+  width: 60px;
+}
+#caption-text,
+#number {
+  height: 46px;
+  display: block;
+  float: left;
 }
 
 #typewriter {

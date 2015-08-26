@@ -262,13 +262,13 @@ jQuery(document).ready(function($){
 	
 	$('#about-contents .image_wrapper img').hover(function(){	
 		var rel = $(this).attr('rel');
-	    $('#caption').html($(this).data('caption')).show();
-		$('#number').html(rel).show();
+	    $('#caption-text').html($(this).data('caption'));
+		$('#number').html(rel);
+		$('#caption').show();
 	});
 
 	$('#about-contents img').mouseout(function(){
-	    $('#caption').hide();
-		$('#number').hide();	
+	    $('#caption').hide();	
 	});
 		
 	$('#about-contents .image_wrapper_background').click(function() {
