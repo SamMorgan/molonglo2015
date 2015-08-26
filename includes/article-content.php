@@ -1,4 +1,4 @@
-<article class="article" id="post-<?php echo $post->ID;?>">
+<article class="article postwrap" id="post-<?php echo $post->ID;?>">
 
 	<section class="article_body">
 	

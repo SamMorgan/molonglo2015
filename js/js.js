@@ -4,7 +4,7 @@
 jQuery(document).ready(function($){
 
 	var $win = $(window),
-		homeURL = $('#logo').attr('href');
+		homeURL = $('#logo').attr('href')+'/';
 		//$slidewrap = $('#slidewrap');
 		//$homeWrap = $('.homewrap');
 
@@ -141,7 +141,8 @@ jQuery(document).ready(function($){
 		$typeAnimSlow = $('#type-anim-slow'),
 		$typeAnimFast = $('#type-anim-fast'),
 	    i = 0,
-	    isTag,typeTimer,
+	    isTag,
+	    typeTimer,
 	    //newh,
 	    //h,
 	    char;
@@ -173,7 +174,7 @@ jQuery(document).ready(function($){
 				if( char === '>' ){ isTag = false; }
 				
 				if (isTag){ return type(); }			   
-				typeTimer = setTimeout(type,1);					
+				typeTimer = setTimeout(type,2);					
 				
 			return;
 		}	
@@ -402,13 +403,13 @@ jQuery(document).ready(function($){
 		$('.breadcrumbs a').removeClass('active');
 		$('.breadcrumbs a.'+cat).addClass('active');	
 
-		if($('.article#post-'+post_id).length){
+		if($('.postwrap#post-'+post_id).length){
 		    $('body').removeClass('home').addClass('single');
 			window.history.pushState({path:href},'',href);
 		}else{
 			$this.css('cursor', 'progress');	
-			if($('.article').length){
-				$('.article').remove();
+			if($('.postwrap').length){
+				$('.postwrap').remove();
 			}
 		    $.ajax({
 		        type: 'POST',
@@ -445,6 +446,11 @@ jQuery(document).ready(function($){
 			openActiveNavItem(hash);
 		}else{
 			$('.categorywrap.open').removeClass('open').find('.category_posts').hide();
+			if(href.indexOf(homeURL +'about') > -1 ){
+				$('#slidewrap').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function() {
+					openAbout();
+				});	
+			}		
 		}
 
 		$('body').removeClass('single').addClass('home');							
