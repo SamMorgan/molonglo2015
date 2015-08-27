@@ -216,6 +216,8 @@ jQuery(document).ready(function($){
 		$('#about.categorywrap').addClass('open');
 		$('#about-wrap').slideDown(function(){
 			runTypewriter();
+			var offset = $('#about.categorywrap').offset().top - 90;
+			$('.homewrap').animate({scrollTop:offset},500);			
 		});		
 	}
 	function closeAbout(){
@@ -257,24 +259,26 @@ jQuery(document).ready(function($){
 		}
 	});
 
+	// Thumbnail Captions //
 	$("#about-contents .image_wrapper img").each(function(i) {	
 		var caption = $(this).data('caption');  
 	    //$(this).attr("rel", i+1);
 	    $(this).data('caption',i+1 + '.&nbsp;&nbsp;&nbsp;' + caption); 
 	});
-	
-	$('.has_caption').mouseenter(function(){	
-		var cap = $(this).data('caption');
+	if($('body').hasClass('not_mobile')){
+		$('.has_caption').mouseenter(function(){	
+			var cap = $(this).data('caption');
 
-		$('body').append('<div id="caption">'+cap+'</div>');	
-	    //$('#caption-text').html($(this).data('caption'));
-		//$('#number').html(rel);
-		//$('#caption').show();
-	});
+			$('body').append('<div id="caption">'+cap+'</div>');	
+		    //$('#caption-text').html($(this).data('caption'));
+			//$('#number').html(rel);
+			//$('#caption').show();
+		});
 
-	$('.has_caption').mouseout(function(){
-	    $('#caption').remove();	
-	});
+		$('.has_caption').mouseout(function(){
+		    $('#caption').remove();	
+		});
+	}	
 		
 	$('#about-contents .image_wrapper_background').click(function() {
 		$('#about-contents .image_wrapper').hide();
@@ -325,14 +329,22 @@ jQuery(document).ready(function($){
 	}
 	setInterval(updateClock(), 1000);
 
-
+	function openCategory($targetElem,hash,$category){
+		$targetElem.slideDown(function(){				
+			window.location.hash = hash;
+			$('#back').attr('href',window.location);
+			var offset = $category.offset().top - 90;
+			$('.homewrap').animate({scrollTop:offset},500);
+		});		
+	}
 
 	// Main nav //
 	$('.category_toggle').click(function(){
-		var $category = $(this).closest('.categorywrap'),
+		var $this = $(this),
+			$category = $this.closest('.categorywrap'),
 			$targetElem = $category.find('.category_posts'),
 			$categoryOpen = $('.categorywrap.open'),
-			hash = $(this).attr('href');
+			hash = $this.attr('href');
 
 		//$category.toggleClass('open');	
 		//$targetElem.slideToggle();
@@ -340,35 +352,48 @@ jQuery(document).ready(function($){
 		if($targetElem.is(':visible')){			
 			$targetElem.slideUp(function(){
 				$category.removeClass('open');
+				window.location.hash = '';
+				$('#back').attr('href',window.location);
 			});
-			window.location.hash = '';
+			
 		}else{
 			if($categoryOpen.length){
+
 				if($categoryOpen.attr('id') === 'about'){
 					closeAbout();
-				}else{				
-					$categoryOpen.find('.category_posts').slideUp(function(){
+				}else{			
+					$('.categorywrap.open .category_posts').slideUp(function(){
 						$categoryOpen.removeClass('open');
 					});	
-				}			
+				}
+				setTimeout(function(){
+					openCategory($targetElem,hash,$category);				
+				}, 400);
+
+			}else{
+				openCategory($targetElem,hash,$category);
 			}
-			$category.addClass('open');
-			$targetElem.slideDown();						
-			window.location.hash = hash;			
-		}
-		$('#back').attr('href',window.location);
+			$category.addClass('open');																				
+		}		
 		return false;
 	});
-
+	// $('.homewrap').scroll(function(){
+	// 	console.log($('.homewrap').scrollTop());
+	// });
 
 
 	function openActiveNavItem(hash){
+		var cat = hash.substring(1);
 		$('.categorywrap.open').removeClass('open').find('.category_posts').hide();
-		$(hash).addClass('open').find('.category_posts').show();
+		$('.categorywrap.'+cat).addClass('open').find('.category_posts').show();
 	}
 
 	if(window.location.hash){
 		openActiveNavItem(window.location.hash);
+		$win.load(function() {
+			var offset = $('.categorywrap.open').offset().top - 90;
+			$('.homewrap').animate({scrollTop:offset},500);	
+		});			
 	}
 	if($('body').hasClass('not_mobile') || $win.width() > 480){
 		$('.category_toggle').hover(function(){
@@ -461,6 +486,7 @@ jQuery(document).ready(function($){
 	// Back button //
 	$(window).on("popstate", function(e) {
 		if (e.originalEvent.state !== null) {
+			console.log(e.originalEvent.state,'back');
 			//var homeUrl = $('#back').attr('href');
 			if(e.originalEvent.state.path === homeURL || e.originalEvent.state.path === homeURL+'/'){
 				$('body').removeClass('single').addClass('home');

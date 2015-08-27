@@ -185,6 +185,10 @@ header {
   .category_posts {
     display: none;
     position:relative;
+    //overflow: hidden;
+    //max-height: 0;
+    height: auto;
+    transition: max-height 0.5s;
     ul {
       text-align: center;
       li {
@@ -196,7 +200,10 @@ header {
     h4 {
       text-decoration: underline;
     }
-  }  
+  }
+  // &.open .category_posts {
+  //   max-height: 999px;
+  // }  
   &.times {
     .category_posts {
       max-width: 1080px;
@@ -265,7 +272,7 @@ header {
         text-decoration: none;
       }
     }
-  }  
+  } 
   // &.roman {
   //   li {
   //     width: 20%;

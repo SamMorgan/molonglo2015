@@ -14,7 +14,7 @@
 					<?php get_template_part('includes/about-content');?>
 				</div>				
 			</section>
-			<section class="categorywrap times" id="times">
+			<section class="categorywrap times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
 				<?php 
 					$rollover_img = get_field('rollover_image','category_3');
@@ -49,7 +49,7 @@
 					?>						
 				</div>				
 			</section>
-			<section class="categorywrap new" id="new">
+			<section class="categorywrap new">
 				<h2><a href="#new" class="category_toggle">New</a></h2>
 				<?php 
 					$rollover_img = get_field('rollover_image','category_4');
@@ -84,7 +84,7 @@
 					?>														
 				</div>				
 			</section>
-			<section class="categorywrap roman" id="roman">
+			<section class="categorywrap roman">
 				<h2><a href="roman" class="category_toggle">Roman</a></h2>
 				<?php 
 					$rollover_img = get_field('rollover_image','category_5');
