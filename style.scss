@@ -98,16 +98,16 @@ header {
     height: 100%;
   }
 }
-.widget,
 .category_description {
-  position:absolute; 
-  top:20px; 
+  top:36px;
+  position:absolute;
 }
 @keyframes marquee {
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-100%, 0); }
 }
 .widget {
+  position:absolute;
   right:3%;
   font-size: 12px;
   line-height: 1em;
@@ -228,7 +228,7 @@ header {
   }
   &.new {
     h4 {
-      @include fortescue;
+      //@include fortescue;
       text-decoration: none;
     }
     .category_posts {
@@ -444,13 +444,13 @@ footer {
 // }
 // Article //
 .article#about-contents {
-  padding: 1em 0 2em;
+  padding: 1em 3.33% 2em;
 }
 .article {
   font-size: 33px;
   line-height: 50px;
   overflow: hidden;
-  padding: 140px 0 0;
+  padding: 140px 3.33% 0;
   margin: 0 auto;
   position:relative;
   max-width:1300px;
@@ -525,6 +525,15 @@ footer {
     text-indent: 2em;
     margin-top: 0 
   }  
+}
+.project_details {
+  margin: 2em 0 0;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  line-height: 1.3em;
+  td {
+    padding: 0 1em 0 0;
+  }
 }
 
 .footnote_wrap {
@@ -641,22 +650,20 @@ footer {
     height: 100%;
 }
 #caption {
-    position: fixed;
-    left: 3.33%;
-    bottom: 50px;
-    font-size: 16px;
-    transform: rotate(-90deg);
-    transform-origin: 0 0;
-    //width: 600px;
-    height: 46px;
-    line-height: 1em;
-    z-index: 999;
-    @include fortescue;
-    // span {
-    //   height: 46px;
-    //   display: block;
-    //   float: left;      
-    // }
+  position: fixed;
+  left: 3.33%;
+  bottom: 50px;
+  font-size: 16px;
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+  //width: 600px;
+  height: 46px;
+  line-height: 1em;
+  z-index: 999;
+  @include fortescue;
+  &.times {
+    font-family: Arial,sans-serif;
+  }  
 }
 // .caption-text {
 //     width: 440px;
@@ -684,7 +691,7 @@ div#clock {
 }
 #typewriter {
   position: relative;
-  width: 90%;
+  //width: 90%;
   max-width:1300px;
   margin: 0 auto;
   a {
@@ -834,9 +841,14 @@ footer {
       width: 44%;
       margin: 0 2% 1em;
     }
-    &.times li img {
-      height: 120px;
-    }
+    &.times {
+      .category_posts {
+        width: 100%;
+      }
+      li img {
+        height: 90px;
+      }
+    }  
     &.open .category_description {
       display: block;
       position: relative;

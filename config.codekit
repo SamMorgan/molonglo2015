@@ -96,13 +96,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/goldfinger.jpg": {
+	"\/images\/about\/Goldfinger.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 140437,
-		"inputAbbreviatedPath": "\/images\/about\/goldfinger.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/goldfinger.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/Goldfinger.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/Goldfinger.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -195,13 +195,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/landscape31.jpg": {
+	"\/images\/about\/Landscape31.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 141519,
-		"inputAbbreviatedPath": "\/images\/about\/landscape31.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/landscape31.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/Landscape31.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/Landscape31.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -228,35 +228,35 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/new_diverse1.jpg": {
+	"\/images\/about\/New_diverse1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 373853,
-		"inputAbbreviatedPath": "\/images\/about\/new_diverse1.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/new_diverse1.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/New_diverse1.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/New_diverse1.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/new_diverse21.jpg": {
+	"\/images\/about\/New_diverse21.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 255162,
-		"inputAbbreviatedPath": "\/images\/about\/new_diverse21.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/new_diverse21.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/New_diverse21.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/New_diverse21.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/new_messy1.jpg": {
+	"\/images\/about\/New_messy1.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 158411,
-		"inputAbbreviatedPath": "\/images\/about\/new_messy1.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/new_messy1.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/New_messy1.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/New_messy1.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -283,35 +283,35 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/untitled-11.jpg": {
+	"\/images\/about\/Untitled-11.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 230447,
-		"inputAbbreviatedPath": "\/images\/about\/untitled-11.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/untitled-11.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/Untitled-11.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/Untitled-11.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/untitled-21.jpg": {
+	"\/images\/about\/Untitled-21.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 238500,
-		"inputAbbreviatedPath": "\/images\/about\/untitled-21.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/untitled-21.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/Untitled-21.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/Untitled-21.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/about\/untitled-22.jpg": {
+	"\/images\/about\/Untitled-22.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 119567,
-		"inputAbbreviatedPath": "\/images\/about\/untitled-22.jpg",
-		"outputAbbreviatedPath": "\/images\/about\/untitled-22.jpg",
+		"inputAbbreviatedPath": "\/images\/about\/Untitled-22.jpg",
+		"outputAbbreviatedPath": "\/images\/about\/Untitled-22.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -465,11 +465,11 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/moonphase.php": {
+	"\/MoonPhase.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/moonphase.php",
+		"inputAbbreviatedPath": "\/MoonPhase.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

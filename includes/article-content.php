@@ -31,8 +31,16 @@
 
 		<div class="article_contents">
 	    	<?php the_content();?>
-	    </div>
 
+			<?php if( have_rows('project_details') ): ?>
+				<table class="project_details">		 	
+				    <?php while ( have_rows('project_details') ) : the_row();?>			  
+				        <tr><td class="label"><?php the_sub_field('title');?></td><td><?php the_sub_field('text');?></td></tr>
+				    <?php endwhile;?>
+			    </table>	
+			<?php endif;?>
+
+	    </div>
 	</section>
 	
 	<?php if( have_rows('footnotes') ): ?>
