@@ -510,10 +510,7 @@ jQuery(document).ready(function($){
 	});
 
 	if($('body').hasClass('about')){
-		$win.load(function(){
-			openAbout();
-			runTypewriter();
-		});	
+		openAbout();	
 	}
 
 	// function loadAbout(){

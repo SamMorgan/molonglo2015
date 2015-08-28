@@ -1,30 +1,27 @@
 			<nav class="main_nav">
 			<section class="categorywrap about" id="about">
 				<?php $about_page = get_page_by_path( 'about' );?>
-				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>
+				<h2><a href="<?php echo get_permalink($about_page->ID);?>" class="about_link">About</a></h2>				
+				<div class="widget about"><div class="times_ticker"></div></div>
+				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>
+				<div id="about-wrap">
+					<?php get_template_part('includes/about-content');?>
+				</div>
 				<?php
 					$rollover_img = wp_get_attachment_image_src( get_post_thumbnail_id($about_page->ID), 'full' );
 					if($rollover_img){
 						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img[0].');"></div>';
 					}					
-				?>				
-				<div class="widget about"><div class="times_ticker"></div></div>
-				<span class="category_description"><? the_field('sub_heading',$about_page->ID);?></span>
-				<div id="about-wrap">
-					<?php get_template_part('includes/about-content');?>
-				</div>				
+				?>								
 			</section>
 			<section class="categorywrap times">
 				<h2><a href="#times" class="category_toggle">Times</a></h2>
+				
 				<?php 
-					$rollover_img = get_field('rollover_image','category_3');
-					if($rollover_img){
-						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
-					}
-
+					get_template_part('includes/widget-times');
 					echo '<span class="category_description">' . category_description(3) . '</span>';
-				?>				
-				<?php get_template_part('includes/widget-times');?>				
+				?>	
+
 				<div class="category_posts">			        				
 					<?php 
 						$times_args = array('category_name' => 'times','posts_per_page'=>-1);
@@ -47,19 +44,22 @@
 							echo '</ul>';
 						}					
 					?>						
-				</div>				
+				</div>
+
+				<?php 
+					$rollover_img = get_field('rollover_image','category_3');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}					
+				?>
+
 			</section>
 			<section class="categorywrap new">
 				<h2><a href="#new" class="category_toggle">New</a></h2>
 				<?php 
-					$rollover_img = get_field('rollover_image','category_4');
-					if($rollover_img){
-						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
-					}
-
+					get_template_part('includes/widget-new');
 					echo '<span class="category_description">' . category_description(4) . '</span>'; 
-				?>				
-				<?php get_template_part('includes/widget-new');?>
+				?>						
 				<div class="category_posts">
 					<?php 
 						$new_args = array('category_name' => 'new','posts_per_page'=> -1);
@@ -82,19 +82,20 @@
 							echo '</ul>';
 						}					
 					?>														
-				</div>				
+				</div>	
+				<?php 
+					$rollover_img = get_field('rollover_image','category_4');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}					
+				?>							
 			</section>
 			<section class="categorywrap roman">
 				<h2><a href="roman" class="category_toggle">Roman</a></h2>
 				<?php 
-					$rollover_img = get_field('rollover_image','category_5');
-					if($rollover_img){
-						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
-					}
-
-					echo '<span class="category_description">' . category_description(5) . '</span>';
-				?>				
-				<?php get_template_part('includes/widget-roman');?>
+					get_template_part('includes/widget-roman');
+					echo '<span class="category_description">' . category_description(5) . '</span>';					
+				?>
 				<div class="category_posts">
 									
 					<?php 
@@ -122,6 +123,12 @@
 							echo '</ul>';
 						}					
 					?>					
-				</div>				
+				</div>
+				<?php 
+					$rollover_img = get_field('rollover_image','category_5');
+					if($rollover_img){
+						echo '<div class="bg_rollover" style="background-image:url('.$rollover_img.');"></div>';
+					}
+				?>								
 			</section>
 		</nav>		
