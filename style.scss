@@ -473,6 +473,7 @@ footer {
     height:21px;
   }
   .popup_img { 
+    display: inline-block;
     img {
       display: inline-block;
     }
@@ -481,7 +482,7 @@ footer {
       width: auto;
     }
     &.line_height_2 img {
-      height: 88px;
+      height: 86px;
       width: auto;
     }
     &.line_height_3 img {
@@ -546,7 +547,7 @@ footer {
   line-height: 1.3em;
   max-width: 600px;
   td {
-    padding: 0 1em 0 0;
+    padding: 0 3em 0 0;
   }
 }
 
@@ -836,6 +837,13 @@ footer {
   .footnotes {
     font-size: 10px;
   } 
+}
+@media screen and (max-width: 640px) {
+  .categorywrap {
+    h2 {
+      font-size: 50px;
+    }   
+  }
 } 
 @media screen and (max-width: 480px) {
   .categorywrap {

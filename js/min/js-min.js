@@ -133,9 +133,38 @@ jQuery(document).ready(function($){
 	}	
 	mainNavCenter();
 
+
+    // Really nasty moving elements for mobile //
+    function moveWidgets(){
+    	if($win.width() < 480){
+    		$('.categorywrap').each(function(){
+    			var $widget = $(this).find('.widget'),
+    				$desc = $(this).find('.category_description'),
+    				$catPosts = $(this).find('.category_posts');
+    			
+    			$catPosts.prepend($desc).prepend($widget);	
+    		});
+    	}else{
+    		if($('.category_posts .widget').length){
+	    		$('.categorywrap').each(function(){
+	    			//if($(this).find('.category_posts .widget')){ 
+		    			var $widget = $(this).find('.category_posts .widget'),
+		    				$desc = $(this).find('.category_posts .category_description'),
+		    				$heading = $(this).find('h2');
+		    			
+		    			$desc.insertAfter($heading);
+		    			$widget.insertAfter($heading);	
+		    		//}	
+	    		});    			
+    		}
+    	}
+    }
+    moveWidgets();
+
 	$win.resize(function(){
 		mainNavCenter();
 		gm();
+		moveWidgets();
 	});
 
 	// about page stuff //
@@ -211,7 +240,7 @@ jQuery(document).ready(function($){
 		$('#about.categorywrap').addClass('open');
 		$('#about-wrap').slideDown(500,function(){
 			runTypewriter();
-			var offset = $('#about.categorywrap').offset().top - 90;
+			var offset = $('#about.categorywrap').offset().top - 80;
 			$('.homewrap').animate({scrollTop:offset},500);			
 		});		
 	}
@@ -328,7 +357,7 @@ jQuery(document).ready(function($){
 		
 		$catwrap.addClass('open');
 		$catwrap.find('.category_posts').slideDown(500,function(){				
-			var offset = $catwrap.offset().top - 90;
+			var offset = $catwrap.offset().top - 80;
 			$('.homewrap').animate({scrollTop:offset},500);
 			window.location.hash = '#'+cat;
 			$('#back').attr('href',window.location.href);
