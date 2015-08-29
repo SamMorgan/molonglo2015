@@ -121,11 +121,11 @@ jQuery(document).ready(function($){
 			mainNavH = $('.main_nav').height(),
 			footerPadding = $('footer').height() - $('header').height(),
 			mainNavPadding = ($win.height() - mainNavH - footerPadding)/2;
-		if(mainNavPadding > 90){	
+		//if(mainNavPadding > 90){	
 			mainNav.css('padding-top',mainNavPadding+"px").addClass('ready');
-		}else{
-			mainNav.show();
-		}
+		//}else{
+			//mainNav.show();
+		//}
 	}	
 	mainNavCenter();
 
@@ -422,7 +422,7 @@ jQuery(document).ready(function($){
 			$('.homewrap').scrollTop(offset);	
 		//});			
 	}
-	if($('body').hasClass('not_mobile') || $win.width() > 480){
+	if($('body').hasClass('not_mobile') && $win.width() > 480){
 		$('.category_toggle,.about_link').hoverIntent(function(){
 			if($('.categorywrap.hover').length === 0 && $('.categorywrap.open').length === 0){
 				$(this).closest('.categorywrap').addClass('hover');

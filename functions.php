@@ -74,14 +74,16 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
     add_filter('body_class','custom_class_names');
     function custom_class_names($classes) {
         
+        global $post;
+        if ( isset( $post ) ) {
+            $classes[] = $post->post_name;
+        }
+
         // Mobile detects
-        switch (true) {         
+        switch (true) { 
+
             case wp_is_mobile() :
                 $classes[] = 'is_mobile';                
-                break;
-
-            case is_page('about') :
-                $classes[] = 'about';                
                 break;
 
             default :
