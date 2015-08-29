@@ -245,6 +245,7 @@ jQuery(document).ready(function($){
 			$('#about.categorywrap').removeClass('open');
 			clearTimeout(typeTimer);
 			$('#type-anim-slow,#type-anim-fast').empty();
+			mainNavCenter();
 		});
 		window.history.pushState({path:homeURL},'',homeURL);
 	}
@@ -368,7 +369,9 @@ jQuery(document).ready(function($){
 			if($catOpen.attr('id') === 'about'){
 				closeAbout();
 			}else{							
-				$catOpen.find('.category_posts').slideUp(500);
+				$catOpen.find('.category_posts').slideUp(500,function(){
+					mainNavCenter();
+				});
 				$catOpen.removeClass('open');	
 			}
 			setTimeout(function(){
