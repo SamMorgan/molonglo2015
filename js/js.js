@@ -419,11 +419,11 @@ jQuery(document).ready(function($){
 
 	if(window.location.hash){
 		openActiveNavItem(window.location.hash);
-		//$win.load(function() {
+		$win.load(function() {
 			var offset = $('.categorywrap.open').offset().top - 90;
-			//$('.homewrap').animate({scrollTop:offset},500);
-			$('.homewrap').scrollTop(offset);	
-		//});			
+			$('.homewrap').animate({scrollTop:offset},500);
+			//$('.homewrap').scrollTop(offset);	
+		});			
 	}
 	if($('body').hasClass('not_mobile') && $win.width() > 480){
 		$('.category_toggle,.about_link').hoverIntent(function(){

@@ -668,14 +668,14 @@ footer {
 }
 #caption {
   position: fixed;
-  left: 1.5em;
+  left: 21px;
   bottom: 0;
   font-size: 16px;
   transform: rotate(-90deg);
-  transform-origin: 0 1em;
+  transform-origin: 0 16px;
   //width: 600px;
   height: 46px;
-  line-height: 1em;
+  line-height: 16px;
   z-index: 999;
   @include fortescue;
   &.times {
@@ -869,7 +869,13 @@ footer {
     //   margin-right: 3.33%;
     //   width: 30%;
     // }   
-  }  
+  }
+  #caption {
+    left: 18px;
+    font-size: 13px;
+    transform-origin: 0 13px;
+    line-height: 13px;  
+  }    
 }
 @media screen and (max-width: 640px) {
   .categorywrap {
