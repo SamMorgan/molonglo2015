@@ -87,6 +87,9 @@ header {
     background:none;
   }
 }
+.wf-loading body {
+    visibility: hidden;
+}
 #logo {
   width: 179px;
   height: 21px;
@@ -348,8 +351,8 @@ header {
   position:fixed;
   top:34px;
   left:3%;
-  font-size: 21px;
-  line-height: 21px;
+  font-size: 25px;
+  line-height: 25px;
   @include fortescue;
   a {
     text-decoration: none;
@@ -460,8 +463,8 @@ footer {
   padding: 1em 3.33% 2em;
 }
 .article {
-  font-size: 33px;
-  line-height: 50px;
+  font-size: 25px;
+  line-height: 35px;
   overflow: hidden;
   padding: 140px 3.33% 0;
   margin: 0 auto;
@@ -474,26 +477,29 @@ footer {
   }
   .popup_img { 
     img {
-      display: inline-block;
+      display: block;
+      &.alignnone {
+        display: inline-block;
+      }
     }
     &.line_height_1 img {
-      height: 38px;
+      height: 24px;
       width: auto;
     }
     &.line_height_2 img {
-      height: 86px;
+      height: 62px;
       width: auto;
     }
     &.line_height_3 img {
-      height: 138px;
+      height:100px;
       width: auto;
     }
     &.line_height_4 img {
-      height: 187px;
+      height: 134px;
       width: auto;
     }
     &.line_height_5 img {
-      height: 237px;
+      height: 167px;
       width: auto;
     }
   }      
@@ -526,14 +532,21 @@ footer {
 .article_body {
   width: 100%;
   float: none;
-  min-height: auto !important;
+  min-height: auto !important;  
 }
 .article_contents {
   padding: 0 0 2em;
   @include fortescue;
+  visibility: hidden;
+  &.images_ready {
+    visibility: visible;    
+  }
   p {
     margin-bottom: 0 
   }
+  &.footnote_visible {
+    transform: translate3d(0,0,0);
+  }  
   // p + p {
   //   text-indent: 2em;
   //   margin-top: 0 
@@ -577,7 +590,7 @@ footer {
 .footnote_marker {
   color:#fff;
   background: #000;
-  font-size:16px;
+  font-size:13px;
   padding: 0 3px;
   position: relative;
   top:-1em;

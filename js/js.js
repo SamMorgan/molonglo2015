@@ -4,9 +4,9 @@
 jQuery(document).ready(function($){
 
 	var $win = $(window),
-		homeURL = $('#logo').attr('href')+'/';
+		homeURL = $('#logo').attr('href')+'/',
 		//$slidewrap = $('#slidewrap');
-		//$homeWrap = $('.homewrap');
+		$homeWrap = $('.homewrap');
 
 
 	// clock //
@@ -72,14 +72,45 @@ jQuery(document).ready(function($){
 	
 	$(document).on('click','.footnote_marker',function(){
 		if($(this).hasClass('footnote_open')){
-			$('.article_contents .footnote').remove();
-			$(this).removeClass('footnote_open');	
+			$(this).next('.footnote').remove();
+			$(this).removeClass('footnote_open');
+			$('.article_contents').removeClass('footnote_visible');	
 		}else{				
 	    	var fig = $(this).text();
 			var footnote = $('#footnote-'+fig).clone();
 			$(this).addClass('footnote_open').after(footnote);
+			$('.article_contents').addClass('footnote_visible');
 		}		
-	});			
+	});
+
+	function stopImgReflow(){
+
+		$('.popup_img').each(function(){
+			var $img = $(this).find('img'),
+				h = $img.attr('height'),
+				w = $img.attr('width'),
+				r = h/$img.height(),
+				nw = w/r;
+				console.log(h,w,r,nw,$img.height());
+			$img.css('width',nw); 					
+		});
+		$('.article_contents').addClass('images_ready');
+	}
+	stopImgReflow();
+
+	// function positionFootnotes(){
+	// 	if($('.footnote_marker').length){
+	// 		$('.footnote_marker').each(function(){
+	// 	    	var fig = $(this).text();
+	// 			$('#footnote-'+fig).appendTo($(this).parent());
+	// 		});
+	// 	}	
+	// }
+	// positionFootnotes();
+
+	// $('.article_contents').imagesLoaded( function() {
+	//   $(this).addClass('ready');
+	// });				
 
 	function gm(){
 		var winWidth = $win.width();
@@ -237,7 +268,7 @@ jQuery(document).ready(function($){
 		$('#about-wrap').slideDown(500,function(){
 			runTypewriter();
 			var offset = $('#about.categorywrap').offset().top - 80;
-			$('.homewrap').animate({scrollTop:offset},500);			
+			$homeWrap.animate({scrollTop:offset},500);			
 		});		
 	}
 	function closeAbout(){
@@ -355,7 +386,7 @@ jQuery(document).ready(function($){
 		$catwrap.addClass('open');
 		$catwrap.find('.category_posts').slideDown(500,function(){				
 			var offset = $catwrap.offset().top - 80;
-			$('.homewrap').animate({scrollTop:offset},500);
+			$homeWrap.animate({scrollTop:offset},500);
 			window.location.hash = '#'+cat;
 			$('#back').attr('href',window.location.href);
 			history.pushState({path:window.location.href},'',window.location.href);
@@ -380,8 +411,17 @@ jQuery(document).ready(function($){
 
 		}else{
 			openCategory(cat);
+			mainNavCenter();
 		}		
 	}
+	// kill scrollTop animation if user scrolls //
+	$homeWrap.bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
+	    if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel" || e.type === 'touchstart' ){
+	        $homeWrap.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+	    }
+	});
+
+
 	$('.category_toggle').click(function(){
 		var cat = $(this).text().toLowerCase(),
 			$category = $(this).closest('.categorywrap'),
@@ -412,16 +452,18 @@ jQuery(document).ready(function($){
 	function openActiveNavItem(hash){
 		var cat = hash.substring(1);
 		$('.categorywrap.open').removeClass('open').find('.category_posts').hide();
-		$('.categorywrap.'+cat).addClass('open').find('.category_posts').show();
+		$('.categorywrap.'+cat).addClass('open').find('.category_posts').show();		
+
 		//var offset = $('.categorywrap.'+cat).offset().top - 90;
 		//$('.homewrap').scrollTop(offset);			
 	}
 
 	if(window.location.hash){
 		openActiveNavItem(window.location.hash);
+		$('#back').attr('href',window.location.href);
 		$win.load(function() {
 			var offset = $('.categorywrap.open').offset().top - 90;
-			$('.homewrap').animate({scrollTop:offset},500);
+			$homeWrap.animate({scrollTop:offset},500);
 			//$('.homewrap').scrollTop(offset);	
 		});			
 	}
@@ -474,11 +516,11 @@ jQuery(document).ready(function($){
 		        //data: {action: 'load_article', post_url: href },
 		        success: function(response) {
 		        	$(response).appendTo('#article-container'); 
-		        	//$('footer').clone().appendTo('.articlewrap');
 		        	$('body').removeClass('home').addClass('single');
 		        	$this.css('cursor', 'auto');
 					window.history.pushState({path:href},'',href);
 		            popups(); 
+		            stopImgReflow();
 		        }
 		    });
 		}

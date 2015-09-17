@@ -107,7 +107,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
       if ( preg_match('/<a.*? class=".*?">/', $html) ) {
         $html = preg_replace('/(<a.*? class=".*?)(".*?>)/', '$1 ' . $classes . '$2', $html);
       } else {
-        $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes .' '. $line_height. '" >', $html);
+        $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes .' '. $line_height.'" >', $html);
       }
       return $html;
     }
