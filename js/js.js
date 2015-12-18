@@ -207,9 +207,12 @@ jQuery(document).ready(function($){
 	    char;
 	   
 
+	var typing = true;
 
 	function type() {
 		
+		if (!typing){ return; }
+
 	    var text = strSlow.slice(0, ++i);			    
 	    
 	    if (text === strSlow){
@@ -247,10 +250,16 @@ jQuery(document).ready(function($){
 		
 		if (isTag){ return type(); }			   
 		typeTimer = setTimeout(type,80);
+
+
 							   
 	}
 
 	function runTypewriter(){
+	    if (i > 1) {
+	        typing = true;
+	        return type();
+	    }		
 		strSlow = $('#type-string .slow').html();
 		strFast = $('#type-string .fast').html();
 		$typeAnimSlow = $('#type-anim-slow');
@@ -260,8 +269,11 @@ jQuery(document).ready(function($){
 		typeTimer = 0;
 		char = 0;
 
-        type();		
+        type();
+
 	}
+
+
 
 	function openAbout(){
 		$('#about.categorywrap').addClass('open');
@@ -274,8 +286,9 @@ jQuery(document).ready(function($){
 	function closeAbout(){
 		$('#about-wrap').slideUp(500,function(){
 			$('#about.categorywrap').removeClass('open');
-			clearTimeout(typeTimer);
-			$('#type-anim-slow,#type-anim-fast').empty();
+			//clearTimeout(typeTimer);
+			//$('#type-anim-slow,#type-anim-fast').empty();
+			typing = false;
 			mainNavCenter();
 		});
 		window.history.pushState({path:homeURL},'',homeURL);
@@ -382,7 +395,7 @@ jQuery(document).ready(function($){
 	function openCategory(cat){
 		
 		var $catwrap = $('.categorywrap.'+cat);
-		
+		$('header').removeClass('clear_bg');
 		$catwrap.addClass('open');
 		$catwrap.find('.category_posts').slideDown(500,function(){				
 			var offset = $catwrap.offset().top - 80;
