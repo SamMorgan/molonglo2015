@@ -51,6 +51,7 @@ function enqueue_scripts_styles() {
 
     wp_localize_script( 'js', 'sitevars', array(
         'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+        'homeurl'   => home_url()
         //'themeurl'  => get_stylesheet_directory_uri()
         )
     ); 
@@ -145,7 +146,8 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts_styles' );
         //$args = array('p' => $postid);
 
         $post_query = new WP_Query( $args );
-        while( $post_query->have_posts() ) : $post_query->the_post(); 
+        while( $post_query->have_posts() ) : $post_query->the_post();
+            echo '<a href="#" class="save_article" data-postid="'.$_POST['post_id'].'">Save +</a>'; 
             get_template_part('includes/article-content');
         endwhile;
         wp_die();        

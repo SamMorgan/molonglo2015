@@ -11,6 +11,7 @@
 
 		<div class="sectionwrap articlewrap">
 			<div class="contentwrap" id="article-container">
+
 				<?php 
 					if (have_posts()) while (have_posts()) : the_post();
 

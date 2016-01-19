@@ -1,5 +1,6 @@
 // @codekit-prepend "/lib/jquery.magnific-popup.custom.min.js";
-
+// @codekit-prepend "/lib/jquery.lazyloadxt.min.js";
+// @codekit-prepend "/lib/js.cookie.js";
 
 jQuery(document).ready(function($){
 
@@ -91,7 +92,6 @@ jQuery(document).ready(function($){
 				w = $img.attr('width'),
 				r = h/$img.height(),
 				nw = w/r;
-				console.log(h,w,r,nw,$img.height());
 			$img.css('width',nw); 					
 		});
 		$('.article_contents').addClass('images_ready');
@@ -195,6 +195,52 @@ jQuery(document).ready(function($){
 	});
 
 	// about page stuff //
+
+    //function aboutSlider(){
+
+
+	  //   $('#about-slider').royalSlider({
+			// autoHeight: true,
+			// arrowsNav: false,
+			// imageScaleMode: 'none',
+			// imageAlignCenter:false,
+			// loop: false,
+			// loopRewind: true,
+			// keyboardNavEnabled: true,
+			// usePreloader: false,
+			// startSlideId:1,
+			// deeplinking: {
+			// 	// deep linking options go gere
+			// 	enabled: true,
+			// 	change: true,
+			// 	//prefix: 'slider-'
+			// },
+
+	        // visibleNearby: {
+	        //     enabled: true,
+	        //     centerArea: 0.8,
+	        //     center: true,
+	        //     //breakpoint: 650,
+	        //     //breakpointCenterArea: 0.64,
+	        //     navigateByCenterClick: true
+	        // }
+	    //});
+	    
+	    
+	    //$('#about-slider').royalSlider('updateSliderSize', true);
+
+
+
+	    // $('#about-slider').slick({
+			  // dots: false,
+			  // arrows: false,
+			  // infinite: false,
+			  // speed: 300,
+			  // slidesToShow: 1,
+			  // adaptiveHeight: true,
+	    // });
+	//}
+
 	var strSlow = $('#type-string .slow').html(),
 		strFast = $('#type-string .fast').html(),
 		$typeAnimSlow = $('#type-anim-slow'),
@@ -273,16 +319,99 @@ jQuery(document).ready(function($){
 
 	}
 
+	var $aboutSlider = $('#about-slider');
+
+	function aboutSliderPos(){			
+		var aboutTop = $aboutSlider.offset().top;
+		$('.slide.fixed').each(function(){
+			//if($(this).css('top') > 0 && aboutTop > 0){
+				$(this).css('top',aboutTop);
+			//}
+		});
+
+	}
+
+	$('#about-slider .slide').click(function(){
+		if($(this).hasClass('fixed')){
+			var currentHeight = $aboutSlider.height(),
+				$slide = $(this),
+				slideHash = $slide.data('hash'),
+				slideHeight = $slide.height();
+
+			$aboutSlider.css('height',currentHeight);
+			
+			$('#about-slider .slide.current').removeClass('current').addClass('fixed');
+			aboutSliderPos();	
+					
+			$aboutSlider.attr('class',slideHash);
+			$aboutSlider.animate({'height':slideHeight},300,function(){
+				$slide.removeClass('fixed').addClass('current');
+				window.location.hash = slideHash;
+			});
+			
+		}
+	});
 
 
+	$('.about_slider_nav a').click(function(){
+		var href = $(this).attr('href'),
+			hash = href.substring(1);
+		
+		$('.about_slider_nav a.current').removeClass('current');
+		$(this).addClass('current');	
+
+		$('#about-slider .slide.' + hash).trigger("click");
+	});
+
+
+	// function aboutSizing(){
+	// 	$('#about-wrap').height($win.height());
+	// }
+	// aboutSizing();
+	// $win.resize(function(){
+	// 	aboutSizing();
+	// });
+	$('#back-to-top').click(function(){
+		var aboutTop = parseInt($('.main_nav').css('padding-top')) - 80;
+		$homeWrap.animate({scrollTop:aboutTop},500);
+	});
+
+
+	function backToTop(){
+		var s = $homeWrap.scrollTop();
+		if(s > $win.height()){
+			$('#back-to-top').fadeIn();
+		}else{
+			$('#back-to-top').fadeOut();				
+		}
+	}	
 	function openAbout(){
 		$('#about.categorywrap').addClass('open');
 		$('#about-wrap').slideDown(500,function(){
+
 			runTypewriter();
+			aboutSliderPos();
+			$homeWrap.bind('scroll',function(){
+				aboutSliderPos();
+				backToTop();
+			});
+			$(window).bind('resize',function(){
+				aboutSliderPos();
+			});			
+			//$('#about-slider').royalSlider('updateSliderSize', true);
 			var offset = $('#about.categorywrap').offset().top - 80;
-			$homeWrap.animate({scrollTop:offset},500);			
+			$homeWrap.animate({scrollTop:offset},500);
+			if(window.location.hash){
+				var hash = window.location.hash.substring(1);
+				$('#about-slider .slide.' + hash).trigger("click");
+			}			
 		});		
 	}
+
+	
+
+
+
 	function closeAbout(){
 		$('#about-wrap').slideUp(500,function(){
 			$('#about.categorywrap').removeClass('open');
@@ -290,6 +419,13 @@ jQuery(document).ready(function($){
 			//$('#type-anim-slow,#type-anim-fast').empty();
 			typing = false;
 			mainNavCenter();
+			$homeWrap.unbind('scroll',function(){
+				aboutSliderPos();
+				backToTop();
+			});
+			$(window).unbind('resize',function(){
+				aboutSliderPos();
+			});			
 		});
 		window.history.pushState({path:homeURL},'',homeURL);
 	}
@@ -400,10 +536,9 @@ jQuery(document).ready(function($){
 		$catwrap.find('.category_posts').slideDown(500,function(){				
 			var offset = $catwrap.offset().top - 80;
 			$homeWrap.animate({scrollTop:offset},500);
-			window.location.hash = '#'+cat;
+			window.location.hash = cat;
 			$('#back').attr('href',window.location.href);
 			history.pushState({path:window.location.href},'',window.location.href);
-			//toggling = false;
 		});		
 	}
 	function categoryAccordion(cat){
@@ -428,11 +563,11 @@ jQuery(document).ready(function($){
 		}		
 	}
 	// kill scrollTop animation if user scrolls //
-	$homeWrap.bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
-	    if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel" || e.type === 'touchstart' ){
-	        $homeWrap.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
-	    }
-	});
+	// $homeWrap.bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
+	//     if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel" || e.type === 'touchstart' ){
+	//         $homeWrap.stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+	//     }
+	// });
 
 
 	$('.category_toggle').click(function(){
@@ -444,7 +579,7 @@ jQuery(document).ready(function($){
 			$targetElem.slideUp(function(){
 				$category.removeClass('open');
 				window.location.hash = '';
-				$('#back').attr('href',window.location);
+				$('#back').attr('href',window.location.href);
 			});
 			
 		}else{
@@ -471,7 +606,7 @@ jQuery(document).ready(function($){
 		//$('.homewrap').scrollTop(offset);			
 	}
 
-	if(window.location.hash){
+	if(window.location.hash && !$('body').hasClass('about')){
 		openActiveNavItem(window.location.hash);
 		$('#back').attr('href',window.location.href);
 		$win.load(function() {
@@ -505,6 +640,118 @@ jQuery(document).ready(function($){
 		// });
 	}	
 
+
+
+    // save articles //
+
+    function addSaveArticleButton(){
+    	if($('.save_article_wrap').length){ $('.save_article_wrap').remove(); }
+    	var $article = $('.article.postwrap'),
+    		postId = $article.data('id'),
+    		postIdStr = '-'+$article.data('id')+'-',
+    		savedArticles = Cookies.get('molonglo_save_articles');
+    		if(savedArticles){
+    			var count = (savedArticles.split("-").length - 1)*0.5,
+    				vewSavedHtml = '<br><a id="saved-count" href="'+sitevars.homeurl+'/saved-articles?saved='+savedArticles+'">View Saved <span>'+count+'</span></a>';
+	    		if(savedArticles.indexOf(postId) === -1){    	
+	    			$article.after('<div class="save_article_wrap"><a href="#" class="save_article" data-postid="'+postId+'">+ Save</a>' + vewSavedHtml + '</div>');
+	    		}else{
+	    			$article.after('<div class="save_article_wrap"><a href="#" class="save_article" data-postid="'+postId+'">- Remove</a>' + vewSavedHtml + '</div>');
+	    		}
+
+	    	}else{
+	    		$article.after('<div class="save_article_wrap">' +
+	    					   '<a href="#" class="save_article" data-postid="'+postId+'">+ Save</a>' +  
+	    					   '<br><a id="saved-count" style="display:none;" href="'+sitevars.homeurl+
+	    					   '/saved-articles/#'+postIdStr+'">View Saved <span>1</span></a></div>');
+	    	}			
+    }
+    if($('.articlewrap .article.postwrap').length){
+    	addSaveArticleButton();
+    }
+
+    $(document).on('click','.save_article',function(){
+    	var savedArticles = Cookies.get('molonglo_save_articles'),
+    		postId = $(this).data('postid'),
+    		postIdStr = '-'+postId+'-',
+    		newCount;
+    		
+
+    	if(savedArticles){    
+    		if($(this).text() === '+ Save' ){	    		
+	    		if(savedArticles.indexOf(postIdStr) === -1){
+	    			savedArticles += postIdStr;
+	    			Cookies.remove('molonglo_save_articles');
+	    			Cookies.set('molonglo_save_articles', savedArticles, { expires:28 } );
+	    			$(this).text('- Remove');
+	    			$('#saved-count').attr('href',sitevars.homeurl+'/saved-articles?saved='+savedArticles+postIdStr);
+	    			newCount = (savedArticles.split("-").length - 1)*0.5;
+	    			$('#saved-count span').text(newCount);	    			
+	    		}
+	    	}else{
+	    		var index = savedArticles.indexOf(postIdStr);
+	    		if (index > -1) {
+    				savedArticles = savedArticles.replace(postIdStr, "");
+	    			Cookies.remove('molonglo_save_articles');
+	    			Cookies.set('molonglo_save_articles', savedArticles, { expires:28 } );		    			
+	    			$(this).text('+ Save');
+	    			newCount = (savedArticles.split("-").length - 1)*0.5;
+	    			if(newCount === 0){
+	    				$('#saved-count').hide();
+	    			}else{
+	    				$('#saved-count').attr('href',sitevars.homeurl+'/saved-articles?saved='+savedArticles);
+	    				$('#saved-count span').text(newCount);
+	    			}
+				}
+	    	}	
+    	}else{
+    		Cookies.set('molonglo_save_articles', postIdStr, { expires:28 } );
+    		$(this).text('- Remove');
+    		$('#saved-count span').text(1);
+    		$('#saved-count').attr('href',sitevars.homeurl+'/saved-articles?saved='+postIdStr).show();
+    	}
+    	return false;
+	});
+
+	/**
+	 * Get the value of a querystring
+	 * @param  {String} field The field to get the value of
+	 * @param  {String} url   The URL to get the value from (optional)
+	 * @return {String}       The field value
+	 */
+	var getQueryString = function ( field, url ) {
+	    var href = url ? url : window.location.href;
+	    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+	    var string = reg.exec(href);
+	    return string ? string[1] : null;
+	};
+
+
+	$('.remove_saved_article').click(function(){		
+		var querytStr = getQueryString('saved'),
+			postId = $(this).data('id'),
+			postIdStr = '-'+postId+'-';
+
+		querytStr = querytStr.replace(postIdStr, "");
+		$(this).closest('.saved_article_wrap').fadeOut(function(){ $(this).remove(); });
+		Cookies.set('molonglo_save_articles', querytStr, { expires:28 } );
+		var updatedUrl = sitevars.homeurl+'/saved-articles?saved='+querytStr;
+		window.history.pushState({path:updatedUrl},'',updatedUrl);
+		return false;
+	});
+
+	$(document).on('click','.email_selection',function(){
+		var mail_str = "mailto:?subject= Check this link --> " + document.title; 
+			mail_str += "&body= " + document.title; 
+			mail_str += "... at: " + location.href; 
+		window.open(mail_str);	
+		//location.href = mail_str;
+		return false; 
+	});	
+	
+
+
+
 	function loadArticle($this){
 		var href = $this.attr('href'),
 			post_id = $this.data('id'),
@@ -534,6 +781,7 @@ jQuery(document).ready(function($){
 					window.history.pushState({path:href},'',href);
 		            popups(); 
 		            stopImgReflow();
+		            addSaveArticleButton(); 
 		        }
 		    });
 		}
@@ -570,7 +818,6 @@ jQuery(document).ready(function($){
 
 	// Back button //
 	$win.on("popstate", function(e) {
-		//console.log(e.originalEvent);
 		if (e.originalEvent.state !== null) {
 			if(e.originalEvent.state.path === homeURL || e.originalEvent.state.path === homeURL+'/'){
 				$('body').removeClass('single').addClass('home');
@@ -593,7 +840,10 @@ jQuery(document).ready(function($){
 	});
 
 	if($('body').hasClass('about')){
-		openAbout();	
+		//$(window).load(function(){
+			openAbout();
+			//$('.about_link').trigger("click");
+		//});	
 	}
 
 	// function loadAbout(){
@@ -661,5 +911,6 @@ jQuery(document).ready(function($){
  
         }
     });
+
 
 });	
